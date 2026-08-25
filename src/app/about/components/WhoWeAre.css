@@ -1,19 +1,38 @@
 /* ==========================================================
-   WhoWeAre.css
+   WHO WE ARE — RESPONSIVE STYLES
    ========================================================== */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .who-we-are {
-  background: linear-gradient(180deg, #f7f1e6 0%, #f2e9d8 60%, #f0e6d3 100%);
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  background: linear-gradient(
+    180deg,
+    #f7f1e6 0%,
+    #f2e9d8 60%,
+    #f0e6d3 100%
+  );
   color: #0d1b2a;
 }
 
+/* ==========================================================
+   HERO
+   ========================================================== */
+
 .who-hero {
   position: relative;
+  width: 100%;
   overflow: hidden;
   padding: 64px 0 96px;
 }
 
-/* Faded soldier silhouette watermark, top-left */
+/* Faded soldier silhouette watermark */
 .hero-watermark {
   position: absolute;
   top: 0;
@@ -29,27 +48,45 @@
   z-index: 0;
 }
 
+/* ==========================================================
+   MAIN CONTAINER
+   ========================================================== */
+
 .who-container {
   position: relative;
   z-index: 1;
+
+  width: 100%;
   max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 24px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left: 24px;
+  padding-right: 24px;
+
+  min-width: 0;
 }
 
-/* ---------- SECTION HEADING ---------- */
+/* ==========================================================
+   SECTION HEADING
+   ========================================================== */
 
 .section-heading {
-  text-align: center;
+  width: 100%;
   max-width: 720px;
   margin: 0 auto 56px;
+  text-align: center;
 }
 
 .eyebrow {
   display: inline-block;
+
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.28em;
+  line-height: 1.4;
+
   color: #c9912a;
   text-transform: uppercase;
 }
@@ -58,13 +95,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   margin: 10px 0 18px;
 }
 
 .heading-decoration span {
   display: inline-block;
+
   width: 60px;
   height: 2px;
+
   background: #c9912a;
 }
 
@@ -74,95 +114,155 @@
 }
 
 .section-heading h1 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(2.4rem, 4vw, 3.6rem);
-  line-height: 1.1;
-  color: #0d1b2a;
   margin: 0 0 16px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.1;
+
+  color: #0d1b2a;
+
+  overflow-wrap: break-word;
 }
 
 .hero-description {
+  max-width: 680px;
+  margin: 0 auto;
+
   font-size: 1.05rem;
   line-height: 1.6;
+
   color: #4a4640;
-  margin: 0;
 }
 
-/* ---------- MISSION LAYOUT ---------- */
+/* ==========================================================
+   MISSION LAYOUT
+   ========================================================== */
 
 .mission-layout {
   display: grid;
-  grid-template-columns: 300px 0.75fr auto 1.9fr;
+
+  grid-template-columns:
+    minmax(220px, 300px)
+    minmax(0, 0.75fr)
+    auto
+    minmax(0, 1.9fr);
+
   align-items: start;
+
   gap: 40px;
   margin-bottom: 56px;
+
+  width: 100%;
+  min-width: 0;
 }
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
 
 @media (max-width: 1100px) {
   .mission-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: 32px;
   }
+
   .mission-divider {
     display: none;
   }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Image card */
+/* ==========================================================
+   IMAGE CARD
+   ========================================================== */
+
 .mission-image-wrapper {
   position: relative;
   width: 100%;
+  min-width: 0;
 }
 
 .image-outline {
   position: absolute;
+
   top: 20px;
   left: -20px;
+
   width: 100%;
   height: 100%;
+
   border: 1.5px solid #c9912a;
   border-radius: 20px;
+
   z-index: 0;
+  pointer-events: none;
 }
 
 .mission-image {
   position: relative;
   z-index: 1;
-  border-radius: 20px;
+
+  width: 100%;
+
   overflow: hidden;
+  border-radius: 20px;
+
   box-shadow: 0 20px 40px rgba(13, 27, 42, 0.18);
+
   aspect-ratio: 4 / 3.4;
 }
 
 .mission-image img {
+  display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  display: block;
 }
 
-/* Mission / Vision text */
+/* ==========================================================
+   MISSION / VISION CONTENT
+   ========================================================== */
+
 .mission-content {
   display: flex;
   flex-direction: column;
+
   gap: 32px;
+
+  width: 100%;
+  min-width: 0;
 }
 
 .mission-block {
   display: flex;
+
   gap: 16px;
   align-items: flex-start;
+
+  min-width: 0;
 }
 
 .small-gold-icon {
-  flex-shrink: 0;
+  flex: 0 0 42px;
+
   width: 42px;
   height: 42px;
+
   border-radius: 50%;
+
   background: rgba(201, 145, 42, 0.12);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #c9912a;
 }
 
@@ -171,60 +271,96 @@
   height: 20px;
 }
 
+.mission-block > div:last-child {
+  min-width: 0;
+}
+
 .mission-block h2 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: #0d1b2a;
   margin: 0 0 8px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  color: #0d1b2a;
 }
 
 .mission-block p {
+  max-width: 360px;
+
+  margin: 0;
+
   font-size: 0.92rem;
   line-height: 1.65;
+
   color: #4a4640;
-  margin: 0;
-  max-width: 360px;
 }
 
-/* Vertical divider between mission text and values grid */
+/* ==========================================================
+   DIVIDER
+   ========================================================== */
+
 .mission-divider {
   width: 1px;
   align-self: stretch;
+
   background: rgba(13, 27, 42, 0.12);
 }
 
-/* ---------- VALUES GRID ---------- */
+/* ==========================================================
+   VALUES
+   ========================================================== */
 
 .values-container {
   width: 100%;
+  min-width: 0;
 }
 
 .values-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
   gap: 32px;
+
+  width: 100%;
 }
 
 .value-card {
+  width: 100%;
+  min-width: 0;
+
   background: #ffffff;
+
   border-radius: 22px;
+
   padding: 32px 42px;
+
   min-height: 220px;
+
   display: flex;
   flex-direction: column;
+
   box-shadow: 0 18px 42px rgba(13, 27, 42, 0.09);
 }
 
 .value-icon {
+  flex: 0 0 auto;
+
   width: 88px;
   height: 88px;
+
   border-radius: 50%;
+
   background: rgba(201, 145, 42, 0.14);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #c9912a;
+
   margin-bottom: 28px;
 }
 
@@ -234,68 +370,106 @@
 }
 
 .value-card h3 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 700;
-  font-size: 1.9rem;
-  color: #0d1b2a;
   margin: 0 0 14px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  color: #0d1b2a;
+
+  overflow-wrap: break-word;
 }
 
 .value-card p {
+  flex: 1;
+
+  margin: 0 0 24px;
+
   font-size: 1.1rem;
   line-height: 1.7;
+
   color: #4a4640;
-  margin: 0 0 24px;
-  flex: 1;
+
+  overflow-wrap: break-word;
 }
 
 .card-line {
   width: 46px;
   height: 3px;
+
+  flex-shrink: 0;
+
   background: #c9912a;
 }
 
-/* ---------- IMPACT STRIP ---------- */
+/* ==========================================================
+   IMPACT STRIP
+   ========================================================== */
 
 .impact-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  width: 100%;
+
   background: #f0e2c8;
+
   border-radius: 18px;
+
   padding: 28px 16px;
+
   margin-bottom: 72px;
 }
 
 .impact-item {
+  position: relative;
+
   display: flex;
   align-items: center;
-  gap: 14px;
   justify-content: center;
-  position: relative;
+
+  gap: 14px;
+
+  min-width: 0;
+
   padding: 0 12px;
 }
 
 .impact-item:not(:last-child)::after {
   content: "";
+
   position: absolute;
+
   right: 0;
   top: 50%;
+
   transform: translateY(-50%);
+
   width: 1px;
   height: 44px;
+
   background: rgba(13, 27, 42, 0.14);
 }
 
 .impact-icon {
-  flex-shrink: 0;
+  flex: 0 0 52px;
+
   width: 52px;
   height: 52px;
+
   border-radius: 50%;
+
   background: #ffffff;
+
   border: 1.5px solid #c9912a;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #c9912a;
 }
 
@@ -307,117 +481,153 @@
 .impact-content {
   display: flex;
   flex-direction: column;
+
+  min-width: 0;
 }
 
 .impact-content strong {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0d1b2a;
   line-height: 1.1;
+
+  color: #0d1b2a;
 }
 
 .impact-content span {
   font-size: 0.85rem;
+  line-height: 1.4;
+
   color: #4a4640;
 }
 
-@media (max-width: 900px) {
-  .impact-strip {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  .impact-item:not(:last-child)::after {
-    display: none;
-  }
-}
-
-/* ---------- RESPONSIBILITY SECTION ---------- */
+/* ==========================================================
+   RESPONSIBILITY SECTION
+   ========================================================== */
 
 .responsibility-section {
   display: grid;
-  grid-template-columns: 340px 1fr;
+
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+
   gap: 40px;
+
   align-items: center;
+
+  width: 100%;
+  min-width: 0;
 }
 
-@media (max-width: 900px) {
-  .responsibility-section {
-    grid-template-columns: 1fr;
-  }
+.responsibility-intro {
+  min-width: 0;
 }
 
 .responsibility-intro h2 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 700;
-  font-size: 1.9rem;
-  line-height: 1.25;
-  color: #0d1b2a;
   margin: 0 0 14px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.25;
+
+  color: #0d1b2a;
 }
 
 .gold-divider {
   width: 60px;
   height: 3px;
+
   background: #c9912a;
+
   margin-bottom: 18px;
 }
 
 .responsibility-intro p {
+  max-width: 340px;
+
+  margin: 0 0 24px;
+
   font-size: 0.95rem;
   line-height: 1.65;
+
   color: #4a4640;
-  margin: 0 0 24px;
-  max-width: 340px;
 }
 
 .join-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+
   gap: 10px;
+
   background: #0d1b2a;
   color: #ffffff;
+
   border: none;
   border-radius: 8px;
+
   padding: 14px 24px;
+
   font-size: 0.95rem;
   font-weight: 600;
+
   cursor: pointer;
-  transition: background 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .join-button:hover {
   background: #14283d;
+  transform: translateY(-1px);
 }
 
 .button-heart {
   color: #c9912a;
 }
 
+/* ==========================================================
+   RESPONSIBILITY FLOW
+   ========================================================== */
+
 .responsibility-flow {
   display: flex;
+
   align-items: flex-start;
   justify-content: space-between;
+
+  width: 100%;
+  min-width: 0;
 }
 
 .responsibility-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+
   width: 150px;
+  min-width: 0;
+
+  text-align: center;
 }
 
 .responsibility-icon {
   width: 92px;
   height: 92px;
+
   border-radius: 50%;
+
   background: #ffffff;
+
   box-shadow: 0 10px 24px rgba(13, 27, 42, 0.1);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #c9912a;
+
   margin-bottom: 16px;
 }
 
@@ -427,51 +637,521 @@
 }
 
 .responsibility-item h3 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #0d1b2a;
   margin: 0 0 8px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+
+  color: #0d1b2a;
 }
 
 .responsibility-item p {
+  margin: 0;
+
   font-size: 0.82rem;
   line-height: 1.55;
+
   color: #4a4640;
-  margin: 0;
 }
 
 .flow-connector {
   flex: 1;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding-top: 46px;
+
+  min-width: 20px;
 }
 
 .flow-connector span {
+  flex: 0 0 auto;
+
   width: 8px;
   height: 8px;
+
   border-radius: 50%;
+
   border: 1.5px solid #c9912a;
+
   background: #f7f1e6;
 }
 
 .flow-connector::before,
 .flow-connector::after {
   content: "";
+
   flex: 1;
+
   height: 1px;
+
   background: rgba(201, 145, 42, 0.4);
 }
 
+/* ==========================================================
+   TABLET — 900px
+   ========================================================== */
+
 @media (max-width: 900px) {
+  .who-hero {
+    padding: 56px 0 72px;
+  }
+
+  .who-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .mission-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mission-divider {
+    display: none;
+  }
+
+  .mission-block p {
+    max-width: none;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .impact-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .impact-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .responsibility-section {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .responsibility-intro p {
+    max-width: 600px;
+  }
+
   .responsibility-flow {
     flex-wrap: wrap;
+
     gap: 32px;
+
     justify-content: center;
   }
+
   .flow-connector {
     display: none;
+  }
+}
+
+/* ==========================================================
+   MOBILE — 640px
+   ========================================================== */
+
+@media (max-width: 640px) {
+  .who-we-are {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .who-hero {
+    width: 100%;
+
+    padding: 42px 0 56px;
+  }
+
+  .who-container {
+    width: 100%;
+    max-width: 100%;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Smaller watermark on phones */
+
+  .hero-watermark {
+    width: 260px;
+    max-width: 70vw;
+
+    opacity: 0.1;
+  }
+
+  /* Heading */
+
+  .section-heading {
+    width: 100%;
+    max-width: 100%;
+
+    margin-bottom: 40px;
+
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+  }
+
+  .heading-decoration {
+    margin: 8px 0 14px;
+  }
+
+  .heading-decoration span {
+    width: 44px;
+  }
+
+  .section-heading h1 {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+    line-height: 1.08;
+
+    margin-bottom: 14px;
+  }
+
+  .hero-description {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  /* Mission */
+
+  .mission-layout {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 36px;
+
+    margin-bottom: 44px;
+  }
+
+  /* Image */
+
+  .mission-image-wrapper {
+    width: calc(100% - 8px);
+
+    margin-left: 8px;
+  }
+
+  .image-outline {
+    top: 12px;
+    left: -8px;
+
+    border-radius: 16px;
+  }
+
+  .mission-image {
+    width: 100%;
+
+    border-radius: 16px;
+
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Mission text */
+
+  .mission-content {
+    width: 100%;
+
+    gap: 28px;
+  }
+
+  .mission-block {
+    gap: 12px;
+  }
+
+  .small-gold-icon {
+    flex: 0 0 36px;
+
+    width: 36px;
+    height: 36px;
+  }
+
+  .small-gold-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .mission-block h2 {
+    font-size: 1.35rem;
+  }
+
+  .mission-block p {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Values */
+
+  .values-container {
+    width: 100%;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    width: 100%;
+  }
+
+  .value-card {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 26px 22px;
+
+    border-radius: 18px;
+  }
+
+  .value-icon {
+    width: 68px;
+    height: 68px;
+
+    margin-bottom: 20px;
+  }
+
+  .value-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .value-card h3 {
+    font-size: 1.65rem;
+  }
+
+  .value-card p {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  /* Impact */
+
+  .impact-strip {
+    grid-template-columns: 1fr;
+
+    width: 100%;
+
+    gap: 0;
+
+    padding: 8px 16px;
+
+    border-radius: 16px;
+
+    margin-bottom: 52px;
+  }
+
+  .impact-item {
+    justify-content: flex-start;
+
+    width: 100%;
+
+    padding: 16px 4px;
+
+    gap: 14px;
+  }
+
+  .impact-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .impact-icon {
+    flex: 0 0 46px;
+
+    width: 46px;
+    height: 46px;
+  }
+
+  .impact-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .impact-content strong {
+    font-size: 1.35rem;
+  }
+
+  .impact-content span {
+    font-size: 0.8rem;
+  }
+
+  /* Responsibility */
+
+  .responsibility-section {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .responsibility-intro h2 {
+    font-size: 1.7rem;
+  }
+
+  .responsibility-intro p {
+    max-width: 100%;
+
+    font-size: 0.9rem;
+  }
+
+  .join-button {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .responsibility-flow {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 34px 20px;
+
+    justify-items: center;
+  }
+
+  .responsibility-item {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .responsibility-icon {
+    width: 76px;
+    height: 76px;
+
+    margin-bottom: 12px;
+  }
+
+  .responsibility-icon svg {
+    width: 29px;
+    height: 29px;
+  }
+
+  .responsibility-item h3 {
+    font-size: 1rem;
+  }
+
+  .responsibility-item p {
+    font-size: 0.78rem;
+  }
+
+  .flow-connector {
+    display: none;
+  }
+}
+
+/* ==========================================================
+   SMALL PHONES — 400px
+   ========================================================== */
+
+@media (max-width: 400px) {
+  .who-container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .who-hero {
+    padding-top: 36px;
+  }
+
+  .section-heading h1 {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+  }
+
+  .mission-image-wrapper {
+    width: calc(100% - 5px);
+    margin-left: 5px;
+  }
+
+  .mission-block {
+    gap: 10px;
+  }
+
+  .small-gold-icon {
+    flex-basis: 34px;
+
+    width: 34px;
+    height: 34px;
+  }
+
+  .mission-block h2 {
+    font-size: 1.25rem;
+  }
+
+  .mission-block p {
+    font-size: 0.86rem;
+  }
+
+  .value-card {
+    padding: 24px 18px;
+  }
+
+  .value-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .value-card p {
+    font-size: 0.9rem;
+  }
+
+  .responsibility-flow {
+    gap: 28px 12px;
+  }
+}
+
+/* ==========================================================
+   VERY SMALL PHONES — 360px
+   ========================================================== */
+
+@media (max-width: 360px) {
+  .who-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .section-heading h1 {
+    font-size: 1.85rem;
+  }
+
+  .mission-image {
+    border-radius: 14px;
+  }
+
+  .image-outline {
+    border-radius: 14px;
+  }
+
+  .responsibility-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .responsibility-item {
+    max-width: 180px;
   }
 }
