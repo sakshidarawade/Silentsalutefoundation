@@ -1,0 +1,1194 @@
+/* ==========================================================
+   EDUCATION.CSS
+   Silent Salute Foundation
+========================================================== */
+
+/* ==========================================================
+   ROOT / PAGE
+========================================================== */
+
+.education-page {
+  background: #061f35;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.education-container {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 48px, 1440px);
+  margin: 0 auto;
+}
+
+/* ==========================================================
+   SHARED TYPOGRAPHY
+========================================================== */
+
+.education-page h1,
+.education-page h2,
+.education-page h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.education-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #c9912a;
+  text-transform: uppercase;
+}
+
+.education-gold-divider {
+  width: 60px;
+  height: 3px;
+  background: #c9912a;
+  margin: 18px 0;
+}
+
+.education-heading-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0 18px;
+}
+
+.education-heading-decoration span {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #c9912a;
+}
+
+/* ==========================================================
+   HERO SECTION
+========================================================== */
+
+.education-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 540px;
+  padding: 48px 0 52px;
+
+  background:
+    radial-gradient(
+      circle at 58% 50%,
+      rgba(201, 145, 42, 0.08),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #031a2c 0%,
+      #061f35 55%,
+      #04192a 100%
+    );
+
+  border-bottom: 1px solid rgba(201, 145, 42, 0.35);
+}
+
+.education-hero::before {
+  content: "";
+  position: absolute;
+  top: -230px;
+  left: -200px;
+
+  width: 540px;
+  height: 540px;
+
+  border-radius: 50%;
+
+  background: rgba(201, 145, 42, 0.035);
+
+  pointer-events: none;
+}
+
+.education-hero::after {
+  content: "";
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -280px;
+  bottom: -260px;
+
+  border-radius: 50%;
+
+  background: rgba(201, 145, 42, 0.025);
+
+  pointer-events: none;
+}
+
+.education-hero-container {
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 0.95fr)
+    minmax(430px, 1.35fr)
+    minmax(210px, 0.65fr);
+
+  align-items: center;
+
+  gap: 36px;
+
+  min-height: 440px;
+}
+
+/* ==========================================================
+   HERO CONTENT
+========================================================== */
+
+.education-hero-content {
+  position: relative;
+  z-index: 3;
+
+  max-width: 470px;
+}
+
+.education-hero-content h1 {
+  font-weight: 700;
+
+  font-size: clamp(2.6rem, 3.4vw, 3.8rem);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.04em;
+
+  color: #ffffff;
+
+  margin: 14px 0 0;
+}
+
+.education-hero-content h1 span {
+  display: block;
+
+  color: #d6a64c;
+}
+
+.education-hero-description {
+  max-width: 450px;
+
+  font-size: 0.98rem;
+
+  line-height: 1.65;
+
+  color: rgba(255, 255, 255, 0.84);
+
+  margin: 0 0 14px;
+}
+
+.education-hero-description.secondary {
+  margin-top: 4px;
+}
+
+/* ==========================================================
+   HERO BUTTON
+========================================================== */
+
+.education-primary-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 10px;
+
+  padding: 14px 22px;
+
+  background: #d6a64c;
+
+  color: #ffffff;
+
+  border-radius: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 0.92rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.education-primary-button:hover {
+  background: #e2b45d;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================
+   HERO IMAGE
+========================================================== */
+
+.education-hero-image-wrapper {
+  position: relative;
+
+  height: 440px;
+  min-height: 440px;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.education-hero-image {
+  position: relative;
+
+  z-index: 2;
+
+  width: 115%;
+  max-width: none;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  border-radius: 0;
+
+  filter:
+    drop-shadow(
+      0 20px 30px
+      rgba(0, 0, 0, 0.28)
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.85) 8%,
+      #000 22%,
+      #000 78%,
+      rgba(0, 0, 0, 0.85) 92%,
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.85) 8%,
+      #000 22%,
+      #000 78%,
+      rgba(0, 0, 0, 0.85) 92%,
+      transparent 100%
+    );
+}
+
+.education-hero-glow {
+  position: absolute;
+
+  z-index: 1;
+
+  width: 90%;
+  height: 80%;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(201, 145, 42, 0.14) 0%,
+      rgba(201, 145, 42, 0.05) 38%,
+      transparent 72%
+    );
+
+  filter: blur(20px);
+}
+
+/* ==========================================================
+   HERO STATS
+========================================================== */
+
+.education-hero-stats {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 280px;
+
+  justify-self: end;
+}
+
+.education-hero-stat {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 17px 0;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+}
+
+.education-hero-stat:last-child {
+  border-bottom: none;
+}
+
+.education-stat-icon {
+  flex-shrink: 0;
+
+  width: 54px;
+  height: 54px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(201, 145, 42, 0.85);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #d6a64c;
+}
+
+.education-stat-content {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.education-stat-content strong {
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 1.9rem;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  color: #d6a64c;
+}
+
+.education-stat-content span {
+  margin-top: 5px;
+
+  font-size: 0.78rem;
+
+  line-height: 1.4;
+
+  color:
+    rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================
+   PROGRAM SECTION
+========================================================== */
+
+.education-programs-section {
+  padding: 58px 0 72px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #061f35 0%,
+      #06233b 100%
+    );
+
+  border-bottom:
+    1px solid
+    rgba(201, 145, 42, 0.3);
+}
+
+.education-section-heading {
+  text-align: center;
+
+  max-width: 720px;
+
+  margin:
+    0 auto
+    38px;
+}
+
+.education-section-heading h2 {
+  font-weight: 700;
+
+  font-size:
+    clamp(
+      2.1rem,
+      3.2vw,
+      3rem
+    );
+
+  line-height: 1.05;
+
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
+
+  margin: 8px 0 0;
+}
+
+.education-section-heading > p {
+  max-width: 620px;
+
+  margin: 0 auto;
+
+  font-size: 1rem;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+}
+
+/* ==========================================================
+   PROGRAM CARDS
+========================================================== */
+
+.education-program-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 26px;
+}
+
+.education-program-card {
+  min-height: 230px;
+
+  padding: 30px;
+
+  border-radius: 18px;
+
+  border:
+    1px solid
+    rgba(201, 145, 42, 0.42);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 39, 62, 0.96),
+      rgba(5, 29, 48, 0.96)
+    );
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.education-program-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #c9912a;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 45, 70, 1),
+      rgba(5, 29, 48, 1)
+    );
+
+  box-shadow:
+    0 18px 42px
+    rgba(0, 0, 0, 0.22);
+}
+
+.education-program-icon {
+  width: 70px;
+  height: 70px;
+
+  margin-bottom: 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #d6a64c;
+}
+
+.education-program-card h3 {
+  font-weight: 700;
+
+  font-size: 1.55rem;
+
+  line-height: 1.1;
+
+  color: #d6a64c;
+
+  margin: 0 0 10px;
+}
+
+.education-program-card p {
+  font-size: 0.88rem;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  margin: 0;
+
+  flex: 1;
+}
+
+.education-card-line {
+  width: 46px;
+
+  height: 3px;
+
+  margin-top: 20px;
+
+  background: #c9912a;
+}
+
+/* ==========================================================
+   STORY SECTION
+========================================================== */
+
+.education-story-section {
+  background:
+    linear-gradient(
+      180deg,
+      #071c2d 0%,
+      #061f35 100%
+    );
+
+  border-bottom:
+    1px solid
+    rgba(201, 145, 42, 0.3);
+}
+
+.education-story-layout {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  min-height: 380px;
+
+  align-items: stretch;
+}
+
+/* ==========================================================
+   STORY VISUAL
+========================================================== */
+
+.education-story-visual {
+  position: relative;
+
+  min-height: 380px;
+
+  overflow: hidden;
+}
+
+.education-story-visual img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+.education-story-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 20, 31, 0.9) 0%,
+      rgba(4, 20, 31, 0.42) 50%,
+      rgba(4, 20, 31, 0.12) 100%
+    );
+}
+
+.education-quote {
+  position: absolute;
+
+  left: 36px;
+  bottom: 32px;
+
+  z-index: 2;
+
+  max-width: 330px;
+}
+
+.education-quote-mark {
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 5rem;
+
+  line-height: 0.6;
+
+  color: #d6a64c;
+
+  margin-bottom: 18px;
+}
+
+.education-quote p {
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 1.5rem;
+
+  font-weight: 600;
+
+  line-height: 1.25;
+
+  color: #ffffff;
+
+  margin: 0 0 12px;
+}
+
+.education-quote span {
+  font-size: 0.82rem;
+
+  color:
+    rgba(255, 255, 255, 0.75);
+}
+
+/* ==========================================================
+   RESPONSIBILITY
+========================================================== */
+
+.education-responsibility {
+  padding: 52px 50px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.education-responsibility h2 {
+  font-weight: 700;
+
+  font-size:
+    clamp(
+      2rem,
+      2.8vw,
+      2.8rem
+    );
+
+  line-height: 1.05;
+
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
+
+  margin: 8px 0 0;
+}
+
+.education-responsibility h2 span {
+  display: block;
+
+  color: #d6a64c;
+}
+
+.education-responsibility .education-gold-divider {
+  margin-top: 18px;
+
+  margin-bottom: 26px;
+}
+
+.education-responsibility-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.education-responsibility-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+.education-check-icon {
+  flex-shrink: 0;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  border:
+    1.5px solid
+    #d6a64c;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #d6a64c;
+
+  margin-top: 2px;
+}
+
+.education-responsibility-item p {
+  font-size: 0.86rem;
+
+  line-height: 1.55;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  margin: 0;
+}
+
+/* ==========================================================
+   EDUCATION JOURNEY
+========================================================== */
+
+.education-journey-section {
+  padding: 72px 0;
+
+  background: #f7f1e6;
+
+  color: #0d1b2a;
+}
+
+.education-journey-section .education-eyebrow {
+  color: #c9912a;
+}
+
+.education-journey-section
+.education-section-heading h2 {
+  color: #0d1b2a;
+}
+
+.education-journey-section
+.education-section-heading > p {
+  color: #4a4640;
+}
+
+/* ==========================================================
+   JOURNEY FLOW
+========================================================== */
+
+.education-journey-flow {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.education-journey-item {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  width: 220px;
+}
+
+.education-journey-icon {
+  width: 92px;
+  height: 92px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  border:
+    1px solid
+    rgba(201, 145, 42, 0.5);
+
+  box-shadow:
+    0 10px 24px
+    rgba(13, 27, 42, 0.1);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #c9912a;
+
+  margin-bottom: 16px;
+}
+
+.education-journey-item h3 {
+  font-weight: 700;
+
+  font-size: 1.5rem;
+
+  color: #0d1b2a;
+
+  margin: 0 0 8px;
+}
+
+.education-journey-item p {
+  font-size: 0.84rem;
+
+  line-height: 1.55;
+
+  color: #4a4640;
+
+  margin: 0;
+}
+
+.education-flow-connector {
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding-top: 46px;
+}
+
+.education-flow-connector span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  border:
+    1.5px solid
+    #c9912a;
+
+  background: #f7f1e6;
+}
+
+.education-flow-connector::before,
+.education-flow-connector::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    rgba(201, 145, 42, 0.4);
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 1200px) {
+  .education-hero-container {
+    grid-template-columns:
+      minmax(280px, 1fr)
+      minmax(380px, 1.2fr);
+  }
+
+  .education-hero-stats {
+    grid-column: 1 / -1;
+
+    max-width: none;
+
+    flex-direction: row;
+
+    gap: 0;
+
+    justify-self: stretch;
+
+    margin-top: 4px;
+  }
+
+  .education-hero-stat {
+    flex: 1;
+
+    padding: 16px 20px;
+
+    border-bottom: none;
+
+    border-right:
+      1px solid
+      rgba(255, 255, 255, 0.14);
+  }
+
+  .education-hero-stat:last-child {
+    border-right: none;
+  }
+
+  .education-program-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .education-story-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .education-story-visual {
+    min-height: 400px;
+  }
+
+  .education-responsibility {
+    padding: 50px 32px;
+  }
+}
+
+/* ==========================================================
+   TABLET / SMALL DESKTOP
+========================================================== */
+
+@media (max-width: 900px) {
+  .education-hero {
+    padding: 54px 0 58px;
+  }
+
+  .education-hero-container {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  .education-hero-content {
+    max-width: 680px;
+  }
+
+  .education-hero-image-wrapper {
+    height: 400px;
+    min-height: 400px;
+
+    max-width: 760px;
+
+    width: 100%;
+
+    margin: 0 auto;
+  }
+
+  .education-hero-image {
+    width: 105%;
+  }
+
+  .education-hero-stats {
+    grid-column: auto;
+
+    flex-direction: row;
+
+    width: 100%;
+
+    margin-top: 0;
+  }
+
+  .education-responsibility-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-journey-flow {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 32px;
+  }
+
+  .education-flow-connector {
+    display: none;
+  }
+
+  .education-journey-item {
+    width: 200px;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+  .education-container {
+    width: min(100% - 40px, 1440px);
+  }
+
+  .education-hero {
+    min-height: auto;
+
+    padding: 46px 0 50px;
+  }
+
+  .education-hero-content h1 {
+    font-size:
+      clamp(
+        2.35rem,
+        10vw,
+        3rem
+      );
+
+    line-height: 0.98;
+  }
+
+  .education-hero-description {
+    font-size: 0.94rem;
+  }
+
+  .education-primary-button {
+    width: 100%;
+
+    padding: 15px 20px;
+  }
+
+  .education-hero-image-wrapper {
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .education-hero-image {
+    width: 120%;
+
+    object-position: center;
+  }
+
+  .education-hero-stats {
+    flex-direction: column;
+  }
+
+  .education-hero-stat {
+    width: 100%;
+
+    border-right: none;
+
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, 0.14);
+
+    padding: 16px 0;
+  }
+
+  .education-hero-stat:last-child {
+    border-bottom: none;
+  }
+
+  .education-programs-section {
+    padding: 54px 0 60px;
+  }
+
+  .education-program-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-program-card {
+    min-height: 215px;
+  }
+
+  .education-story-visual {
+    min-height: 360px;
+  }
+
+  .education-quote {
+    left: 24px;
+    bottom: 24px;
+
+    max-width: 280px;
+  }
+
+  .education-quote p {
+    font-size: 1.3rem;
+  }
+
+  .education-responsibility {
+    padding: 46px 0;
+  }
+
+  .education-responsibility h2 {
+    font-size: 2.3rem;
+  }
+
+  .education-journey-section {
+    padding: 58px 0;
+  }
+
+  .education-journey-flow {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .education-journey-item {
+    width: 100%;
+
+    max-width: 330px;
+  }
+}
+
+/* ==========================================================
+   VERY SMALL DEVICES
+========================================================== */
+
+@media (max-width: 400px) {
+  .education-hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .education-section-heading h2 {
+    font-size: 2rem;
+  }
+
+  .education-program-card {
+    padding: 28px 22px;
+  }
+
+  .education-responsibility h2 {
+    font-size: 2rem;
+  }
+
+  .education-hero-image-wrapper {
+    height: 270px;
+    min-height: 270px;
+  }
+}

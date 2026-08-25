@@ -1,0 +1,477 @@
+/* ==========================================================
+   WhoWeAre.css
+   ========================================================== */
+
+.who-we-are {
+  background: linear-gradient(180deg, #f7f1e6 0%, #f2e9d8 60%, #f0e6d3 100%);
+  color: #0d1b2a;
+}
+
+.who-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 64px 0 96px;
+}
+
+/* Faded soldier silhouette watermark, top-left */
+.hero-watermark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 480px;
+  max-width: 45vw;
+  height: auto;
+  opacity: 0.16;
+  object-fit: contain;
+  object-position: left top;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.who-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- SECTION HEADING ---------- */
+
+.section-heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #c9912a;
+  text-transform: uppercase;
+}
+
+.heading-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 18px;
+}
+
+.heading-decoration span {
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background: #c9912a;
+}
+
+.heading-decoration i {
+  font-style: normal;
+  font-size: 0.7rem;
+}
+
+.section-heading h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  line-height: 1.1;
+  color: #0d1b2a;
+  margin: 0 0 16px;
+}
+
+.hero-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #4a4640;
+  margin: 0;
+}
+
+/* ---------- MISSION LAYOUT ---------- */
+
+.mission-layout {
+  display: grid;
+  grid-template-columns: 300px 0.75fr auto 1.9fr;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+
+@media (max-width: 1100px) {
+  .mission-layout {
+    grid-template-columns: 1fr;
+  }
+  .mission-divider {
+    display: none;
+  }
+}
+
+/* Image card */
+.mission-image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.image-outline {
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid #c9912a;
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.mission-image {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(13, 27, 42, 0.18);
+  aspect-ratio: 4 / 3.4;
+}
+
+.mission-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mission / Vision text */
+.mission-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mission-block {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.small-gold-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(201, 145, 42, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9912a;
+}
+
+.small-gold-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mission-block h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #0d1b2a;
+  margin: 0 0 8px;
+}
+
+.mission-block p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #4a4640;
+  margin: 0;
+  max-width: 360px;
+}
+
+/* Vertical divider between mission text and values grid */
+.mission-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(13, 27, 42, 0.12);
+}
+
+/* ---------- VALUES GRID ---------- */
+
+.values-container {
+  width: 100%;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.value-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 32px 42px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 42px rgba(13, 27, 42, 0.09);
+}
+
+.value-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(201, 145, 42, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9912a;
+  margin-bottom: 28px;
+}
+
+.value-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.value-card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #0d1b2a;
+  margin: 0 0 14px;
+}
+
+.value-card p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a4640;
+  margin: 0 0 24px;
+  flex: 1;
+}
+
+.card-line {
+  width: 46px;
+  height: 3px;
+  background: #c9912a;
+}
+
+/* ---------- IMPACT STRIP ---------- */
+
+.impact-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #f0e2c8;
+  border-radius: 18px;
+  padding: 28px 16px;
+  margin-bottom: 72px;
+}
+
+.impact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  position: relative;
+  padding: 0 12px;
+}
+
+.impact-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 44px;
+  background: rgba(13, 27, 42, 0.14);
+}
+
+.impact-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #c9912a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9912a;
+}
+
+.impact-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.impact-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.impact-content strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0d1b2a;
+  line-height: 1.1;
+}
+
+.impact-content span {
+  font-size: 0.85rem;
+  color: #4a4640;
+}
+
+@media (max-width: 900px) {
+  .impact-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .impact-item:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* ---------- RESPONSIBILITY SECTION ---------- */
+
+.responsibility-section {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .responsibility-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.responsibility-intro h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  line-height: 1.25;
+  color: #0d1b2a;
+  margin: 0 0 14px;
+}
+
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: #c9912a;
+  margin-bottom: 18px;
+}
+
+.responsibility-intro p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #4a4640;
+  margin: 0 0 24px;
+  max-width: 340px;
+}
+
+.join-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0d1b2a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.join-button:hover {
+  background: #14283d;
+}
+
+.button-heart {
+  color: #c9912a;
+}
+
+.responsibility-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.responsibility-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+}
+
+.responsibility-icon {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(13, 27, 42, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9912a;
+  margin-bottom: 16px;
+}
+
+.responsibility-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.responsibility-item h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0d1b2a;
+  margin: 0 0 8px;
+}
+
+.responsibility-item p {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #4a4640;
+  margin: 0;
+}
+
+.flow-connector {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 46px;
+}
+
+.flow-connector span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid #c9912a;
+  background: #f7f1e6;
+}
+
+.flow-connector::before,
+.flow-connector::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(201, 145, 42, 0.4);
+}
+
+@media (max-width: 900px) {
+  .responsibility-flow {
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+  }
+  .flow-connector {
+    display: none;
+  }
+}
