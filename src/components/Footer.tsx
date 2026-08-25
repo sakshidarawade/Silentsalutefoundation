@@ -280,7 +280,7 @@ export default function Footer() {
             >
 
               <AppImage
-                src="/assets/images/logo.jpg"
+                src="/assets/images/logo.png"
                 alt="Silent Salute Foundation Logo"
                 width={58}
                 height={58}
