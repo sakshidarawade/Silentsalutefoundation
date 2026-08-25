@@ -10,9 +10,17 @@ const slides = [
     headingTwo: 'Can Change',
     headingThree: "A Hero's",
     headingGold: "Family's Life.",
-    sub: 'Every contribution — big or small — goes directly to education, healthcare, and emergency support for the families who stood behind our brave heroes.',
+    sub:
+      'Every contribution — big or small — goes directly to education, healthcare, and emergency support for the families who stood behind our brave heroes.',
+
+    // DESKTOP IMAGE
     bg: '/assets/images/background1.png',
+
+    // MOBILE IMAGE
+    mobileBg: '/assets/images/background1-mobile.png',
+
     bgPosition: '75% center',
+    mobileBgPosition: 'center',
   },
   {
     id: 2,
@@ -21,9 +29,17 @@ const slides = [
     headingTwo: 'A Big Difference',
     headingThree: 'For a Family',
     headingGold: 'On the Frontline.',
-    sub: 'From education and healthcare to emergency support, every contribution helps families of our brave service members rebuild stability, confidence, and hope.',
+    sub:
+      'From education and healthcare to emergency support, every contribution helps families of our brave service members rebuild stability, confidence, and hope.',
+
+    // DESKTOP IMAGE
     bg: '/assets/images/background2.png',
+
+    // MOBILE IMAGE
+    mobileBg: '/assets/images/background2-mobile.png',
+
     bgPosition: '75% center',
+    mobileBgPosition: 'center',
   },
   {
     id: 3,
@@ -32,9 +48,17 @@ const slides = [
     headingTwo: 'Rebuilds',
     headingThree: 'Hope',
     headingGold: 'And Dignity.',
-    sub: 'When a family faces loss, illness, or hardship, compassion can change everything. Your donation becomes a lifeline of care, support, and renewed strength.',
+    sub:
+      'When a family faces loss, illness, or hardship, compassion can change everything. Your donation becomes a lifeline of care, support, and renewed strength.',
+
+    // DESKTOP IMAGE
     bg: '/assets/images/background3.png',
+
+    // MOBILE IMAGE
+    mobileBg: '/assets/images/background3-mobile.png',
+
     bgPosition: 'center',
+    mobileBgPosition: 'center',
   },
   {
     id: 4,
@@ -43,9 +67,17 @@ const slides = [
     headingTwo: 'Be the Reason',
     headingThree: 'A Family',
     headingGold: 'Feels Safe Again.',
-    sub: 'Together, we can turn sacrifice into security. Your generosity gives families the support they need today and the future they deserve tomorrow.',
+    sub:
+      'Together, we can turn sacrifice into security. Your generosity gives families the support they need today and the future they deserve tomorrow.',
+
+    // DESKTOP IMAGE
     bg: '/assets/images/background4.png',
+
+    // MOBILE IMAGE
+    mobileBg: '/assets/images/background4-mobile.png',
+
     bgPosition: 'center',
+    mobileBgPosition: 'center',
   },
 ];
 
@@ -97,22 +129,43 @@ export default function HeroSlider() {
   return (
     <section className="relative min-h-screen overflow-hidden pt-16">
 
-      {/* BACKGROUND IMAGES */}
-      {slides.map((item, index) => (
-        <div
-          key={item.id}
-          className="absolute inset-0 transition-opacity duration-700 ease-in-out"
-          style={{
-            backgroundImage: `url(${item.bg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: item.bgPosition || 'center',
-            backgroundRepeat: 'no-repeat',
-            opacity: index === current ? 1 : 0,
-            zIndex: index === current ? 1 : 0,
-          }}
-          aria-hidden={index !== current}
-        />
-      ))}
+      {/* ================= DESKTOP BACKGROUNDS ================= */}
+      <div className="absolute inset-0 hidden md:block">
+        {slides.map((item, index) => (
+          <div
+            key={`desktop-${item.id}`}
+            className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+            style={{
+              backgroundImage: `url(${item.bg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: item.bgPosition || 'center',
+              backgroundRepeat: 'no-repeat',
+              opacity: index === current ? 1 : 0,
+              zIndex: index === current ? 1 : 0,
+            }}
+            aria-hidden={index !== current}
+          />
+        ))}
+      </div>
+
+      {/* ================= MOBILE BACKGROUNDS ================= */}
+      <div className="absolute inset-0 block md:hidden">
+        {slides.map((item, index) => (
+          <div
+            key={`mobile-${item.id}`}
+            className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+            style={{
+              backgroundImage: `url(${item.mobileBg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: item.mobileBgPosition || 'center',
+              backgroundRepeat: 'no-repeat',
+              opacity: index === current ? 1 : 0,
+              zIndex: index === current ? 1 : 0,
+            }}
+            aria-hidden={index !== current}
+          />
+        ))}
+      </div>
 
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 z-[2] bg-black/55" />
@@ -272,11 +325,10 @@ export default function HeroSlider() {
         }
 
 
-        /* GOLD LAST LINE */
+        /* LAST LINE */
 
-        /* LAST LINE — MATCHES HEADING COLOR */
         .hero-heading-gold {
-        color: #ffffff;
+          color: #ffffff;
         }
 
 
