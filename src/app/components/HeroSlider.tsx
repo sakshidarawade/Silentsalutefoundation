@@ -12,12 +12,7 @@ const slides = [
     headingGold: "Family's Life.",
     sub: 'Every contribution — big or small — goes directly to education, healthcare, and emergency support for the families who stood behind our brave heroes.',
     bg: '/assets/images/background1.png',
-
-    // Desktop image position
     bgPosition: '75% center',
-
-    // Mobile image position
-    mobileBgPosition: '65% center',
   },
   {
     id: 2,
@@ -29,7 +24,6 @@ const slides = [
     sub: 'From education and healthcare to emergency support, every contribution helps families of our brave service members rebuild stability, confidence, and hope.',
     bg: '/assets/images/background2.png',
     bgPosition: '75% center',
-    mobileBgPosition: '62% center',
   },
   {
     id: 3,
@@ -40,8 +34,7 @@ const slides = [
     headingGold: 'And Dignity.',
     sub: 'When a family faces loss, illness, or hardship, compassion can change everything. Your donation becomes a lifeline of care, support, and renewed strength.',
     bg: '/assets/images/background3.png',
-    bgPosition: 'center center',
-    mobileBgPosition: 'center center',
+    bgPosition: 'center',
   },
   {
     id: 4,
@@ -52,8 +45,7 @@ const slides = [
     headingGold: 'Feels Safe Again.',
     sub: 'Together, we can turn sacrifice into security. Your generosity gives families the support they need today and the future they deserve tomorrow.',
     bg: '/assets/images/background4.png',
-    bgPosition: 'center center',
-    mobileBgPosition: 'center center',
+    bgPosition: 'center',
   },
 ];
 
@@ -78,25 +70,16 @@ export default function HeroSlider() {
     [current, isAnimating]
   );
 
-  /*
-   * AUTO SLIDER
-   *
-   * This resets whenever the current slide changes,
-   * so clicking a dot doesn't cause the timer to jump unexpectedly.
-   */
   useEffect(() => {
-    const timer = window.setTimeout(() => {
+    const timer = window.setInterval(() => {
       setCurrent((previous) => (previous + 1) % slides.length);
     }, SLIDE_DURATION);
 
     return () => {
-      window.clearTimeout(timer);
+      window.clearInterval(timer);
     };
-  }, [current]);
+  }, []);
 
-  /*
-   * FADE / ANIMATION STATE
-   */
   useEffect(() => {
     setIsAnimating(true);
 
@@ -112,49 +95,30 @@ export default function HeroSlider() {
   const slide = slides[current];
 
   return (
-    <section className="hero-slider relative min-h-[100svh] w-full overflow-hidden pt-16">
+    <section className="relative min-h-screen overflow-hidden pt-16">
 
-      {/* =========================================================
-          BACKGROUND IMAGES
-      ========================================================== */}
-
+      {/* BACKGROUND IMAGES */}
       {slides.map((item, index) => (
         <div
           key={item.id}
-          className="hero-background absolute inset-0"
-          style={
-            {
-              '--desktop-position': item.bgPosition,
-              '--mobile-position': item.mobileBgPosition,
-
-              backgroundImage: `url(${item.bg})`,
-              backgroundPosition: item.bgPosition,
-              opacity: index === current ? 1 : 0,
-              zIndex: index === current ? 1 : 0,
-            } as React.CSSProperties
-          }
+          className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+          style={{
+            backgroundImage: `url(${item.bg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: item.bgPosition || 'center',
+            backgroundRepeat: 'no-repeat',
+            opacity: index === current ? 1 : 0,
+            zIndex: index === current ? 1 : 0,
+          }}
           aria-hidden={index !== current}
         />
       ))}
 
-      {/* =========================================================
-          DARK OVERLAY
-      ========================================================== */}
-
+      {/* DARK OVERLAY */}
       <div className="absolute inset-0 z-[2] bg-black/55" />
 
-      {/* =========================================================
-          MOBILE EXTRA OVERLAY
-          Helps text remain readable on portrait screens.
-      ========================================================== */}
-
-      <div className="hero-mobile-overlay pointer-events-none absolute inset-0 z-[3]" />
-
-      {/* =========================================================
-          DECORATIVE DIAGONAL PATTERN
-      ========================================================== */}
-
-      <div className="pointer-events-none absolute inset-0 z-[4] opacity-[0.05]">
+      {/* DECORATIVE DIAGONAL PATTERN */}
+      <div className="pointer-events-none absolute inset-0 z-[3] opacity-5">
         <div
           className="absolute inset-0"
           style={{
@@ -164,47 +128,19 @@ export default function HeroSlider() {
         />
       </div>
 
-      {/* =========================================================
-          GOLD ACCENT LINE
-      ========================================================== */}
+      {/* GOLD ACCENT LINE */}
+      <div className="absolute bottom-0 left-0 top-0 z-[4] w-1 bg-gradient-to-b from-transparent via-accent to-transparent" />
 
-      <div className="absolute bottom-0 left-0 top-0 z-[5] w-1 bg-gradient-to-b from-transparent via-accent to-transparent" />
+      {/* HERO CONTENT */}
+      <div className="relative z-10 flex min-h-[calc(100vh-4rem)] w-full items-center">
+        <div className="w-full max-w-[1500px] px-4 py-20 sm:px-6 lg:px-8">
 
-      {/* =========================================================
-          HERO CONTENT
-      ========================================================== */}
+          <div className="ml-0 max-w-3xl text-left">
 
-      <div className="relative z-10 flex min-h-[calc(100svh-4rem)] w-full items-center">
-        <div
-          className="
-            mx-auto
-            w-full
-            max-w-[1500px]
-            px-5
-            py-16
-            sm:px-8
-            sm:py-20
-            lg:px-10
-            lg:py-24
-          "
-        >
-          <div
-            className="
-              hero-content
-              ml-0
-              w-full
-              max-w-3xl
-              text-left
-            "
-          >
-
-            {/* =====================================================
-                TOP LABEL
-            ====================================================== */}
-
+            {/* GOLD TOP LABEL */}
             <div
               key={`label-${slide.id}`}
-              className="section-label mb-5"
+              className="section-label mb-6"
               style={{
                 animation: 'heroFadeUp 0.7s ease forwards',
               }}
@@ -212,25 +148,22 @@ export default function HeroSlider() {
               {slide.label}
             </div>
 
-            {/* =====================================================
-                MAIN HEADING
-            ====================================================== */}
-
+            {/* MAIN HERO HEADING */}
             <h1
               key={`heading-${slide.id}`}
-              className="hero-heading mb-6"
+              className="hero-heading mb-7"
               style={{
                 animation: 'heroFadeUp 0.7s ease 0.1s forwards',
                 opacity: 0,
               }}
             >
-              <span>{slide.heading}</span>
+              {slide.heading}
               <br />
 
-              <span>{slide.headingTwo}</span>
+              {slide.headingTwo}
               <br />
 
-              <span>{slide.headingThree}</span>
+              {slide.headingThree}
               <br />
 
               <span className="hero-heading-gold">
@@ -238,22 +171,10 @@ export default function HeroSlider() {
               </span>
             </h1>
 
-            {/* =====================================================
-                DESCRIPTION
-            ====================================================== */}
-
+            {/* DESCRIPTION */}
             <p
               key={`description-${slide.id}`}
-              className="
-                hero-description
-                mb-8
-                max-w-2xl
-                text-base
-                leading-relaxed
-                text-white/85
-                sm:mb-10
-                sm:text-lg
-              "
+              className="mb-10 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg"
               style={{
                 animation: 'heroFadeUp 0.7s ease 0.2s forwards',
                 opacity: 0,
@@ -262,19 +183,10 @@ export default function HeroSlider() {
               {slide.sub}
             </p>
 
-            {/* =====================================================
-                CTA BUTTONS
-            ====================================================== */}
-
+            {/* CTA BUTTONS */}
             <div
               key={`buttons-${slide.id}`}
-              className="
-                hero-buttons
-                flex
-                flex-wrap
-                gap-3
-                sm:gap-4
-              "
+              className="flex flex-wrap gap-4"
               style={{
                 animation: 'heroFadeUp 0.7s ease 0.3s forwards',
                 opacity: 0,
@@ -282,18 +194,7 @@ export default function HeroSlider() {
             >
               <Link
                 to="/donate"
-                className="
-                  btn-gold
-                  inline-flex
-                  min-h-[48px]
-                  items-center
-                  justify-center
-                  gap-2
-                  px-5
-                  text-sm
-                  sm:px-6
-                  sm:text-base
-                "
+                className="btn-gold inline-flex items-center gap-2"
               >
                 Support a Family
 
@@ -305,17 +206,7 @@ export default function HeroSlider() {
 
               <Link
                 to="/about"
-                className="
-                  btn-outline-white
-                  inline-flex
-                  min-h-[48px]
-                  items-center
-                  justify-center
-                  px-5
-                  text-sm
-                  sm:px-6
-                  sm:text-base
-                "
+                className="btn-outline-white"
               >
                 Discover Our Mission
               </Link>
@@ -325,22 +216,9 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      {/* =========================================================
-          DOT NAVIGATION
-      ========================================================== */}
-
+      {/* DOT NAVIGATION */}
       <div
-        className="
-          absolute
-          bottom-5
-          left-1/2
-          z-20
-          flex
-          -translate-x-1/2
-          items-center
-          gap-2
-          sm:bottom-8
-        "
+        className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2"
         aria-label="Hero slide navigation"
       >
         {slides.map((item, index) => (
@@ -351,27 +229,14 @@ export default function HeroSlider() {
             disabled={isAnimating}
             aria-label={`Go to slide ${index + 1}`}
             aria-current={index === current ? 'true' : undefined}
-            className="
-              group
-              flex
-              h-6
-              w-8
-              items-center
-              justify-center
-              sm:w-10
-            "
+            className="group flex h-5 items-center justify-center"
           >
             <span
               className={`
-                block
-                rounded-full
-                transition-all
-                duration-500
-                ease-out
-
+                block rounded-full transition-all duration-500 ease-out
                 ${
                   index === current
-                    ? 'h-2 w-8 bg-accent sm:w-10'
+                    ? 'h-2 w-10 bg-accent'
                     : 'h-2 w-2 bg-white/40 group-hover:bg-white/80'
                 }
               `}
@@ -380,34 +245,7 @@ export default function HeroSlider() {
         ))}
       </div>
 
-      {/* =========================================================
-          STYLES
-      ========================================================== */}
-
       <style>{`
-
-        /* ========================================================
-           HERO BACKGROUND
-        ======================================================== */
-
-        .hero-background {
-          position: absolute;
-          inset: 0;
-
-          background-size: cover;
-          background-repeat: no-repeat;
-
-          transition:
-            opacity 700ms ease-in-out,
-            background-position 700ms ease-in-out;
-
-          will-change: opacity;
-        }
-
-
-        /* ========================================================
-           ANIMATION
-        ======================================================== */
 
         @keyframes heroFadeUp {
           from {
@@ -422,338 +260,89 @@ export default function HeroSlider() {
         }
 
 
-        /* ========================================================
-           HERO HEADING
-        ======================================================== */
+        /* MAIN HERO HEADING */
 
         .hero-heading {
           font-family: 'Cormorant Garamond', Georgia, serif;
-
           font-weight: 600;
-
-          font-size: clamp(
-            2.7rem,
-            4.5vw,
-            4.4rem
-          );
-
+          font-size: clamp(2.7rem, 4.5vw, 4.4rem);
           line-height: 1.02;
-
           letter-spacing: -0.025em;
-
           color: #ffffff;
-
-          text-wrap: balance;
         }
 
 
-        /* ========================================================
-           GOLD HEADING
-        ======================================================== */
+        /* GOLD LAST LINE */
 
+        /* LAST LINE — MATCHES HEADING COLOR */
         .hero-heading-gold {
-          color: #ffffff;
+        color: #ffffff;
         }
 
 
-        /* ========================================================
-           TOP LABEL
-        ======================================================== */
+        /* TOP GOLD LABEL */
 
         .section-label {
           font-family: 'Raleway', sans-serif;
-
           font-weight: 600;
-
-          font-size: clamp(
-            0.75rem,
-            0.9vw,
-            0.95rem
-          );
-
+          font-size: clamp(0.75rem, 0.9vw, 0.95rem);
           line-height: 1.2;
-
           letter-spacing: 0.22em;
-
           color: #d6a64c;
-
           text-transform: uppercase;
         }
 
 
-        /* ========================================================
-           TABLET
-        ======================================================== */
-
-        @media (max-width: 1024px) {
-
-          .hero-background {
-            background-position: var(--desktop-position);
-          }
-
-          .hero-content {
-            max-width: 680px;
-          }
-
-          .hero-heading {
-            font-size: clamp(
-              2.6rem,
-              6vw,
-              4rem
-            );
-          }
-
-        }
-
-
-        /* ========================================================
-           MOBILE
-        ======================================================== */
+        /* TABLET */
 
         @media (max-width: 768px) {
 
-          .hero-background {
-            /*
-             * Keep cover so there is no empty space,
-             * but use the mobile-specific focal point.
-             */
-            background-position: var(--mobile-position) !important;
-          }
-
-
-          /*
-           * Stronger gradient on mobile.
-           *
-           * This allows the text to remain readable even
-           * when the image has a bright subject behind it.
-           */
-          .hero-mobile-overlay {
-            background:
-              linear-gradient(
-                90deg,
-                rgba(0, 0, 0, 0.48) 0%,
-                rgba(0, 0, 0, 0.25) 55%,
-                rgba(0, 0, 0, 0.10) 100%
-              );
-          }
-
-
           .hero-heading {
-            font-size: clamp(
-              2.35rem,
-              8vw,
-              3.5rem
-            );
-
+            font-size: clamp(2.3rem, 7vw, 3.5rem);
             line-height: 1.05;
-
             letter-spacing: -0.02em;
           }
 
-
           .section-label {
-            font-size: 0.72rem;
-
-            letter-spacing: 0.14em;
-
-            line-height: 1.4;
-          }
-
-
-          .hero-description {
-            font-size: 1rem;
-
-            line-height: 1.65;
-
-            max-width: 100%;
-          }
-
-
-          .hero-buttons {
-            width: 100%;
-          }
-
-
-          .hero-buttons a {
-            width: auto;
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
           }
 
         }
 
 
-        /* ========================================================
-           SMALL MOBILE
-        ======================================================== */
+        /* MOBILE */
 
         @media (max-width: 480px) {
 
-          .hero-background {
-            /*
-             * Slightly more aggressive focal positioning
-             * for narrow portrait screens.
-             */
-            background-position: var(--mobile-position) center !important;
-          }
-
-
           .hero-heading {
-            font-size: 2.25rem;
-
-            line-height: 1.06;
-
+            font-size: 2.35rem;
+            line-height: 1.08;
             letter-spacing: -0.015em;
           }
 
-
           .section-label {
-            font-size: 0.65rem;
-
-            letter-spacing: 0.12em;
-
-            margin-bottom: 1rem;
-          }
-
-
-          .hero-description {
-            font-size: 0.94rem;
-
-            line-height: 1.6;
-
-            margin-bottom: 1.75rem;
-          }
-
-
-          /*
-           * Stack buttons on very small screens.
-           * This prevents ugly wrapping.
-           */
-          .hero-buttons {
-            flex-direction: column;
-
-            align-items: stretch;
-
-            width: 100%;
-          }
-
-
-          .hero-buttons a {
-            width: 100%;
-
-            min-height: 50px;
-          }
-
-
-          /*
-           * Keep dots away from the browser bottom area.
-           */
-          .hero-slider > div[aria-label="Hero slide navigation"] {
-            bottom: 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.13em;
           }
 
         }
 
 
-        /* ========================================================
-           VERY SMALL PHONES
-        ======================================================== */
-
-        @media (max-width: 360px) {
-
-          .hero-heading {
-            font-size: 2rem;
-
-            line-height: 1.05;
-          }
-
-
-          .section-label {
-            font-size: 0.6rem;
-
-            letter-spacing: 0.1em;
-          }
-
-
-          .hero-description {
-            font-size: 0.9rem;
-          }
-
-        }
-
-
-        /* ========================================================
-           LANDSCAPE PHONES
-        ======================================================== */
-
-        @media (
-          max-width: 900px
-        ) and (
-          orientation: landscape
-        ) {
-
-          .hero-slider {
-            min-height: 100svh;
-          }
-
-
-          .hero-content {
-            padding-top: 2rem;
-            padding-bottom: 4rem;
-          }
-
-
-          .hero-heading {
-            font-size: clamp(
-              2rem,
-              6vw,
-              3rem
-            );
-          }
-
-
-          .hero-description {
-            max-width: 650px;
-
-            margin-bottom: 1.5rem;
-          }
-
-
-          .hero-buttons {
-            flex-direction: row;
-          }
-
-
-          .hero-buttons a {
-            width: auto;
-          }
-
-        }
-
-
-        /* ========================================================
-           REDUCED MOTION
-        ======================================================== */
+        /* REDUCED MOTION */
 
         @media (prefers-reduced-motion: reduce) {
 
-          .hero-background {
-            transition: none;
-          }
-
-
           .hero-heading,
-          .section-label,
-          .hero-description,
-          .hero-buttons {
+          .section-label {
             animation: none !important;
-
             opacity: 1 !important;
-
-            transform: none !important;
           }
 
         }
 
       `}</style>
+
     </section>
   );
 }
