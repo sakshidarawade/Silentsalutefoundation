@@ -26,6 +26,7 @@
 //   const [causesOpen, setCausesOpen] = useState(false);
 //   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
 //   const [mobileCausesOpen, setMobileCausesOpen] = useState(false);
+//   const [logoPreviewOpen, setLogoPreviewOpen] = useState(false);
 
 //   const location = useLocation();
 
@@ -52,6 +53,28 @@
 //       document.body.style.overflow = '';
 //     };
 //   }, [mobileOpen]);
+
+//   // Lock scroll and allow Escape to close the logo preview
+//   useEffect(() => {
+//     if (logoPreviewOpen) {
+//       document.body.style.overflow = 'hidden';
+//     } else {
+//       document.body.style.overflow = '';
+//     }
+
+//     const handleKeyDown = (event: KeyboardEvent) => {
+//       if (event.key === 'Escape') {
+//         setLogoPreviewOpen(false);
+//       }
+//     };
+
+//     window.addEventListener('keydown', handleKeyDown);
+
+//     return () => {
+//       document.body.style.overflow = '';
+//       window.removeEventListener('keydown', handleKeyDown);
+//     };
+//   }, [logoPreviewOpen]);
 
 //   useEffect(() => {
 //     setAboutOpen(false);
@@ -107,10 +130,14 @@
 //           <Link
 //             href="/"
 //             className="flex items-center gap-3 flex-shrink-0"
+//             onClick={(event) => {
+//               event.preventDefault();
+//               setLogoPreviewOpen(true);
+//             }}
 //           >
 //             <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/90 shadow-sm ring-2 ring-white/20 sm:h-[68px] sm:w-[68px]">
 //               <AppImage
-//                 src="/assets/images/logo.jpg"
+//                 src="/assets/images/logo.png"
 //                 alt="Silent Salute Foundation Logo"
 //                 width={72}
 //                 height={72}
@@ -365,7 +392,7 @@
 //               onClick={() => setMobileOpen(false)}
 //             >
 //               <AppImage
-//                 src="/assets/images/logo.jpg"
+//                 src="/assets/images/logo.png"
 //                 alt="Silent Salute Foundation"
 //                 width={45}
 //                 height={45}
@@ -542,10 +569,42 @@
 
 //         </div>
 //       )}
+
+//       {/* Logo Preview Modal */}
+//       {/* Logo Preview Modal */}
+// {logoPreviewOpen && (
+//   <div
+//     className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-md px-4"
+//     onClick={() => setLogoPreviewOpen(false)}
+//   >
+//     {/* Close button */}
+//     <button
+//       type="button"
+//       className="absolute top-6 right-6 z-[210] text-white p-2 hover:text-[#F4D08B] transition-colors"
+//       onClick={() => setLogoPreviewOpen(false)}
+//       aria-label="Close preview"
+//     >
+//       <Icon name="XMarkIcon" size={28} />
+//     </button>
+
+//     {/* Logo */}
+//     <div
+//       className="relative flex items-center justify-center w-[85vw] h-[85vw] max-w-[650px] max-h-[650px]"
+//       onClick={(event) => event.stopPropagation()}
+//     >
+//       <AppImage
+//         src="/assets/images/logo.png"
+//         alt="Silent Salute Foundation Logo"
+//         width={800}
+//         height={800}
+//         className="w-full h-full object-contain"
+//       />
+//     </div>
+//   </div>
+// )}
 //     </>
 //   );
 // }
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -602,7 +661,6 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  // Lock scroll and allow Escape to close the logo preview
   useEffect(() => {
     if (logoPreviewOpen) {
       document.body.style.overflow = 'hidden';
@@ -647,7 +705,6 @@ export default function Navbar() {
     setAboutOpen(false);
   };
 
-  // Menu items: navy blue before scrolling, white once scrolled
   const navLinkColor = scrolled
     ? 'text-white/90 hover:text-accent'
     : 'text-[#173A5E] hover:text-[#C9912A]';
@@ -656,11 +713,13 @@ export default function Navbar() {
     ? 'text-white/90 hover:text-accent'
     : 'text-[#173A5E] hover:text-[#C9912A]';
 
-  // Hindi subtitle: navy blue only before scrolling, back to white once scrolled
-  const hindiColor = scrolled ? 'text-white/70' : 'text-[#173A5E]';
+  const hindiColor = scrolled
+    ? 'text-white/70'
+    : 'text-[#173A5E]';
 
-  // Silent Salute logo text: navy blue only before scrolling, white once scrolled
-  const logoTextColor = scrolled ? 'text-white' : 'text-[#173A5E]';
+  const logoTextColor = scrolled
+    ? 'text-white'
+    : 'text-[#173A5E]';
 
   return (
     <>
@@ -672,20 +731,20 @@ export default function Navbar() {
         }`}
         style={{ height: '94px' }}
       >
-        <div className="mx-auto flex h-full max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-full max-w-[1500px] items-center justify-between px-3 sm:px-6 lg:px-8">
 
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 flex-shrink-0"
+            className="flex items-center gap-2 sm:gap-3 flex-shrink min-w-0"
             onClick={(event) => {
               event.preventDefault();
               setLogoPreviewOpen(true);
             }}
           >
-            <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/90 shadow-sm ring-2 ring-white/20 sm:h-[68px] sm:w-[68px]">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/90 shadow-sm ring-2 ring-white/20 sm:h-[68px] sm:w-[68px]">
               <AppImage
-                src="/assets/images/logo.jpg"
+                src="/assets/images/logo.png"
                 alt="Silent Salute Foundation Logo"
                 width={72}
                 height={72}
@@ -694,16 +753,21 @@ export default function Navbar() {
               />
             </div>
 
-            <div className="hidden sm:block">
-              <div className={`font-display text-[0.9rem] leading-[1.05] tracking-[0.08em] uppercase sm:text-[1rem] transition-colors ${logoTextColor}`}>
+            {/* Logo Name + Subtitle - NOW VISIBLE ON MOBILE */}
+            <div className="block min-w-0">
+              <div
+                className={`font-display text-[0.68rem] leading-[1.05] tracking-[0.06em] uppercase sm:text-[1rem] sm:tracking-[0.08em] transition-colors ${logoTextColor}`}
+              >
                 Silent Salute
               </div>
 
-              <div className="font-display text-[#F4D08B] text-[0.9rem] leading-[1.05] tracking-[0.08em] uppercase sm:text-[1rem]">
+              <div className="font-display text-[#F4D08B] text-[0.68rem] leading-[1.05] tracking-[0.06em] uppercase sm:text-[1rem] sm:tracking-[0.08em]">
                 Foundation
               </div>
 
-              <div className={`mt-2 text-[14px] leading-[1.3] max-w-[180px] font-medium transition-colors ${hindiColor}`}>
+              <div
+                className={`mt-1 text-[9px] leading-[1.25] max-w-[130px] font-medium sm:mt-2 sm:text-[14px] sm:max-w-[180px] transition-colors ${hindiColor}`}
+              >
                 वीर परिवारों का संबल
               </div>
             </div>
@@ -731,8 +795,6 @@ export default function Navbar() {
               onMouseLeave={() => setAboutOpen(false)}
             >
               <div className="flex items-center">
-
-                {/* CLICKING ABOUT US GOES TO ABOUT PAGE */}
                 <Link
                   href="/about"
                   className={`px-3 py-2 text-[1rem] font-medium transition-colors ${
@@ -748,7 +810,6 @@ export default function Navbar() {
                   About Us
                 </Link>
 
-                {/* ONLY ARROW OPENS / CLOSES DROPDOWN */}
                 <button
                   type="button"
                   onClick={(event) => {
@@ -759,21 +820,25 @@ export default function Navbar() {
                     setCausesOpen(false);
                   }}
                   className={`py-2 pr-3 transition-colors ${
-                    isActive('/about') ? 'text-[#F4D08B]' : navChevronColor
+                    isActive('/about')
+                      ? 'text-[#F4D08B]'
+                      : navChevronColor
                   }`}
                   aria-label="Toggle About Us menu"
                 >
                   <Icon
-                    name={aboutOpen ? 'ChevronUpIcon' : 'ChevronDownIcon'}
+                    name={
+                      aboutOpen
+                        ? 'ChevronUpIcon'
+                        : 'ChevronDownIcon'
+                    }
                     size={16}
                   />
                 </button>
-
               </div>
 
               {aboutOpen && (
                 <>
-                  {/* Invisible hover bridge */}
                   <div className="absolute left-0 right-0 top-full h-2" />
 
                   <div
@@ -807,8 +872,6 @@ export default function Navbar() {
               onMouseLeave={() => setCausesOpen(false)}
             >
               <div className="flex items-center">
-
-                {/* CLICKING OUR CAUSES GOES TO CAUSES PAGE */}
                 <Link
                   href="/causes"
                   className={`px-3 py-2 text-[1rem] font-medium transition-colors ${
@@ -824,7 +887,6 @@ export default function Navbar() {
                   Our Causes
                 </Link>
 
-                {/* ONLY ARROW OPENS / CLOSES DROPDOWN */}
                 <button
                   type="button"
                   onClick={(event) => {
@@ -835,21 +897,25 @@ export default function Navbar() {
                     setAboutOpen(false);
                   }}
                   className={`py-2 pr-3 transition-colors ${
-                    isActive('/causes') ? 'text-[#F4D08B]' : navChevronColor
+                    isActive('/causes')
+                      ? 'text-[#F4D08B]'
+                      : navChevronColor
                   }`}
                   aria-label="Toggle Our Causes menu"
                 >
                   <Icon
-                    name={causesOpen ? 'ChevronUpIcon' : 'ChevronDownIcon'}
+                    name={
+                      causesOpen
+                        ? 'ChevronUpIcon'
+                        : 'ChevronDownIcon'
+                    }
                     size={16}
                   />
                 </button>
-
               </div>
 
               {causesOpen && (
                 <>
-                  {/* Invisible hover bridge */}
                   <div className="absolute left-0 right-0 top-full h-2" />
 
                   <div
@@ -899,11 +965,10 @@ export default function Navbar() {
             >
               Contact
             </Link>
-
           </div>
 
           {/* Donate + Hamburger */}
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
 
             <Link
               href="/donate"
@@ -913,7 +978,11 @@ export default function Navbar() {
             </Link>
 
             <button
-              className={`lg:hidden p-2 transition-colors ${scrolled ? 'text-white' : 'text-[#173A5E]'}`}
+              className={`lg:hidden p-2 transition-colors ${
+                scrolled
+                  ? 'text-white'
+                  : 'text-[#173A5E]'
+              }`}
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
@@ -922,7 +991,6 @@ export default function Navbar() {
                 size={20}
               />
             </button>
-
           </div>
 
         </div>
@@ -979,10 +1047,8 @@ export default function Navbar() {
 
             {/* Mobile About */}
             <div>
-
               <div className="flex items-center justify-between border-b border-white/10">
 
-                {/* ABOUT US OPENS ABOUT PAGE */}
                 <Link
                   href="/about"
                   className="flex-1 py-3 text-white font-medium text-lg"
@@ -1012,7 +1078,6 @@ export default function Navbar() {
 
               {mobileAboutOpen && (
                 <div className="pl-4 py-2 space-y-1">
-
                   {aboutDropdown.map((item) => (
                     <Link
                       key={item.label}
@@ -1023,18 +1088,14 @@ export default function Navbar() {
                       {item.label}
                     </Link>
                   ))}
-
                 </div>
               )}
-
             </div>
 
             {/* Mobile Causes */}
             <div>
-
               <div className="flex items-center justify-between border-b border-white/10">
 
-                {/* OUR CAUSES OPENS CAUSES PAGE */}
                 <Link
                   href="/causes"
                   className="flex-1 py-3 text-white font-medium text-lg"
@@ -1064,7 +1125,6 @@ export default function Navbar() {
 
               {mobileCausesOpen && (
                 <div className="pl-4 py-2 space-y-1">
-
                   {causesDropdown.map((item) => (
                     <Link
                       key={item.label}
@@ -1075,10 +1135,8 @@ export default function Navbar() {
                       {item.label}
                     </Link>
                   ))}
-
                 </div>
               )}
-
             </div>
 
             {[
@@ -1119,37 +1177,37 @@ export default function Navbar() {
       )}
 
       {/* Logo Preview Modal */}
-      {/* Logo Preview Modal */}
-{logoPreviewOpen && (
-  <div
-    className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-md px-4"
-    onClick={() => setLogoPreviewOpen(false)}
-  >
-    {/* Close button */}
-    <button
-      type="button"
-      className="absolute top-6 right-6 z-[210] text-white p-2 hover:text-[#F4D08B] transition-colors"
-      onClick={() => setLogoPreviewOpen(false)}
-      aria-label="Close preview"
-    >
-      <Icon name="XMarkIcon" size={28} />
-    </button>
+      {logoPreviewOpen && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-md px-4"
+          onClick={() => setLogoPreviewOpen(false)}
+        >
+          <button
+            type="button"
+            className="absolute top-6 right-6 z-[210] text-white p-2 hover:text-[#F4D08B] transition-colors"
+            onClick={() => setLogoPreviewOpen(false)}
+            aria-label="Close preview"
+          >
+            <Icon
+              name="XMarkIcon"
+              size={28}
+            />
+          </button>
 
-    {/* Logo */}
-    <div
-      className="relative flex items-center justify-center w-[85vw] h-[85vw] max-w-[650px] max-h-[650px]"
-      onClick={(event) => event.stopPropagation()}
-    >
-      <AppImage
-        src="/assets/images/logo.png"
-        alt="Silent Salute Foundation Logo"
-        width={800}
-        height={800}
-        className="w-full h-full object-contain"
-      />
-    </div>
-  </div>
-)}
+          <div
+            className="relative flex items-center justify-center w-[85vw] h-[85vw] max-w-[650px] max-h-[650px]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <AppImage
+              src="/assets/images/logo.png"
+              alt="Silent Salute Foundation Logo"
+              width={800}
+              height={800}
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
