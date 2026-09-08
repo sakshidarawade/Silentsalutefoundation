@@ -1,0 +1,1705 @@
+/* =========================================================
+   HEALTHCARE PAGE
+   Silent Salute Foundation
+   ========================================================= */
+
+
+/* =========================================================
+   ROOT / VARIABLES
+   ========================================================= */
+
+.healthcare-page {
+  --healthcare-navy: #061f35;
+  --healthcare-navy-dark: #031a2c;
+
+  --healthcare-green: #063426;
+  --healthcare-green-dark: #031f18;
+  --healthcare-green-light: #0a4635;
+
+  --healthcare-gold: #c9912a;
+  --healthcare-gold-light: #d6a64c;
+
+  --healthcare-white: #f8f6f0;
+  --healthcare-text: #f4f2eb;
+  --healthcare-muted: rgba(255, 255, 255, 0.78);
+
+  background: var(--healthcare-green-dark);
+  color: var(--healthcare-text);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   COMMON CONTAINER
+   ========================================================= */
+
+.healthcare-container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1440px;
+
+  margin: 0 auto;
+
+  padding: 0 24px;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.healthcare-page h1,
+.healthcare-page h2,
+.healthcare-page h3,
+.healthcare-page .healthcare-stat-content strong,
+.healthcare-page .healthcare-quote,
+.healthcare-page .healthcare-quote-mark {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.healthcare-page p,
+.healthcare-page span,
+.healthcare-page strong,
+.healthcare-page a {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.healthcare-eyebrow {
+  display: inline-block;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.28em;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  color: var(--healthcare-gold-light);
+
+  margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   GOLD DIVIDER
+   ========================================================= */
+
+.healthcare-gold-divider {
+  width: 60px;
+  height: 3px;
+
+  margin: 18px 0;
+
+  background: var(--healthcare-gold);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.healthcare-hero {
+  position: relative;
+
+  min-height: 600px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 68% 45%,
+      rgba(201, 145, 42, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #031a2c 0%,
+      #042b27 52%,
+      #063426 100%
+    );
+
+  border-bottom:
+    1px solid rgba(201, 145, 42, 0.45);
+}
+
+
+/* subtle glow */
+
+.healthcare-hero::before {
+  content: "";
+
+  position: absolute;
+
+  top: -220px;
+  right: 8%;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(201, 145, 42, 0.045);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
+
+.healthcare-hero-container {
+  position: relative;
+
+  min-height: 600px;
+
+  display: grid;
+
+  grid-template-columns:
+    0.9fr
+    1.35fr
+    0.55fr;
+
+  align-items: center;
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.healthcare-hero-content {
+  position: relative;
+
+  z-index: 3;
+
+  max-width: 500px;
+}
+
+
+/* Smaller refined heading */
+
+.healthcare-hero-content h1 {
+  margin: 0;
+
+  max-width: 500px;
+
+  color: var(--healthcare-white);
+
+  font-size:
+    clamp(
+      2.7rem,
+      4vw,
+      4.2rem
+    );
+
+  font-weight: 500;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.04em;
+}
+
+.healthcare-hero-content h1 span {
+  display: block;
+
+  color: var(--healthcare-gold-light);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.healthcare-hero-description {
+  max-width: 450px;
+
+  margin:
+    0
+    0
+    16px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.84
+    );
+
+  font-size: 1rem;
+
+  line-height: 1.65;
+}
+
+.healthcare-hero-description.secondary {
+  margin-top: 4px;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.healthcare-primary-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 10px;
+
+  padding:
+    14px
+    22px;
+
+  border-radius: 7px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+
+  background: var(--healthcare-gold-light);
+
+  color: #ffffff;
+
+  font-size: 0.92rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.healthcare-primary-button:hover {
+  background: #e2b45d;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0
+    12px
+    25px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
+}
+
+
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
+
+.healthcare-hero-image-wrapper {
+  position: relative;
+
+  min-height: 430px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.healthcare-hero-glow {
+  position: absolute;
+
+  z-index: 1;
+
+  width: 480px;
+  height: 360px;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(42, 126, 84, 0.22),
+      transparent 68%
+    );
+
+  filter: blur(15px);
+}
+
+
+.healthcare-hero-image {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 720px;
+
+  height: 450px;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius: 3px;
+
+  filter:
+    saturate(0.92)
+    contrast(1.03);
+
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+}
+
+
+/* =========================================================
+   HERO STATS
+   ========================================================= */
+
+.healthcare-hero-stats {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+}
+
+
+.healthcare-hero-stat {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px 0;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+}
+
+.healthcare-hero-stat:last-child {
+  border-bottom: none;
+}
+
+
+.healthcare-stat-icon {
+  flex-shrink: 0;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1.5px solid
+    var(--healthcare-gold);
+
+  border-radius: 50%;
+
+  color: var(--healthcare-gold-light);
+}
+
+
+.healthcare-stat-content {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.healthcare-stat-content strong {
+  color: var(--healthcare-gold-light);
+
+  font-size: 1.9rem;
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+
+.healthcare-stat-content span {
+  margin-top: 5px;
+
+  font-size: 0.78rem;
+
+  line-height: 1.4;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.8
+    );
+}
+
+
+/* =========================================================
+   PROGRAM SECTION
+   ========================================================= */
+
+.healthcare-programs-section {
+  padding:
+    42px
+    0
+    72px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #063426 0%,
+      #042c22 100%
+    );
+
+  border-bottom:
+    1px solid
+    rgba(
+      201,
+      145,
+      42,
+      0.3
+    );
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.healthcare-section-heading {
+  max-width: 720px;
+
+  margin:
+    0
+    auto
+    34px;
+
+  text-align: center;
+}
+
+
+.healthcare-section-heading h2 {
+  margin: 8px 0 0;
+
+  color: var(--healthcare-white);
+
+  font-size:
+    clamp(
+      2.3rem,
+      3.6vw,
+      3.4rem
+    );
+
+  font-weight: 500;
+
+  line-height: 1.1;
+}
+
+
+.healthcare-section-heading h2 span {
+  color: var(--healthcare-gold-light);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+}
+
+
+.healthcare-section-heading p {
+  max-width: 620px;
+
+  margin:
+    18px
+    auto
+    0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+  font-size: 1rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   HEADING DECORATION
+   ========================================================= */
+
+.healthcare-heading-decoration {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin:
+    10px
+    0
+    18px;
+}
+
+.healthcare-heading-decoration span {
+  width: 60px;
+  height: 2px;
+
+  background: var(--healthcare-gold);
+}
+
+
+/* =========================================================
+   PROGRAM GRID
+   ========================================================= */
+
+.healthcare-program-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 26px;
+}
+
+
+/* =========================================================
+   PROGRAM CARD
+   ========================================================= */
+
+.healthcare-program-card {
+  position: relative;
+
+  min-height: 220px;
+
+  padding:
+    30px
+    28px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  border:
+    1px solid
+    rgba(
+      201,
+      145,
+      42,
+      0.42
+    );
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 70, 53, 0.96),
+      rgba(3, 46, 34, 0.96)
+    );
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.healthcare-program-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    var(--healthcare-gold);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 83, 63, 1),
+      rgba(3, 46, 34, 1)
+    );
+
+  box-shadow:
+    0
+    18px
+    42px
+    rgba(
+      0,
+      0,
+      0,
+      0.2
+    );
+}
+
+
+.healthcare-program-icon {
+  width: 70px;
+  height: 70px;
+
+  margin-bottom: 14px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: var(--healthcare-gold-light);
+}
+
+
+.healthcare-program-card h3 {
+  margin:
+    0
+    0
+    10px;
+
+  color: var(--healthcare-gold-light);
+
+  font-size: 1.55rem;
+
+  font-weight: 700;
+
+  line-height: 1.1;
+}
+
+
+.healthcare-program-card p {
+  margin: 0;
+
+  flex: 1;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.78
+    );
+
+  font-size: 0.88rem;
+
+  line-height: 1.6;
+}
+
+
+/* bottom line */
+
+.healthcare-card-line {
+  width: 46px;
+  height: 3px;
+
+  margin-top: 20px;
+
+  background:
+    var(--healthcare-gold);
+}
+
+
+/* =========================================================
+   STORY SECTION
+   ========================================================= */
+
+.healthcare-story-section {
+  background:
+    linear-gradient(
+      180deg,
+      #031f18 0%,
+      #042b21 100%
+    );
+
+  border-bottom:
+    1px solid
+    rgba(
+      201,
+      145,
+      42,
+      0.3
+    );
+}
+
+
+.healthcare-story-layout {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  min-height: 350px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   STORY IMAGE
+   ========================================================= */
+
+.healthcare-story-visual {
+  position: relative;
+
+  min-height: 350px;
+
+  overflow: hidden;
+}
+
+
+.healthcare-story-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+.healthcare-story-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 31, 24, 0.88) 0%,
+      rgba(3, 31, 24, 0.38) 50%,
+      rgba(3, 31, 24, 0.12) 100%
+    );
+}
+
+
+/* =========================================================
+   QUOTE
+   ========================================================= */
+
+.healthcare-quote {
+  position: absolute;
+
+  left: 32px;
+  bottom: 28px;
+
+  z-index: 2;
+
+  max-width: 340px;
+
+  padding: 0;
+
+  background: transparent;
+}
+
+
+.healthcare-quote-mark {
+  color: var(--healthcare-gold-light);
+
+  font-size: 5rem;
+
+  line-height: 0.6;
+
+  margin-bottom: 18px;
+}
+
+
+.healthcare-quote p {
+  margin:
+    0
+    0
+    12px;
+
+  color: #ffffff;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 1.45rem;
+
+  line-height: 1.25;
+}
+
+
+.healthcare-quote span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    );
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   RESPONSIBILITY
+   ========================================================= */
+
+.healthcare-responsibility {
+  padding:
+    52px
+    50px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #063426,
+      #042b21
+    );
+}
+
+
+.healthcare-responsibility h2 {
+  margin: 8px 0 0;
+
+  color: var(--healthcare-white);
+
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      3.2rem
+    );
+
+  font-weight: 500;
+
+  line-height: 1.05;
+}
+
+
+.healthcare-responsibility h2 span {
+  display: block;
+
+  color: var(--healthcare-gold-light);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+}
+
+
+.healthcare-responsibility-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 22px;
+
+  margin-top: 28px;
+}
+
+
+.healthcare-responsibility-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+
+.healthcare-check-icon {
+  flex-shrink: 0;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1.5px solid
+    var(--healthcare-gold-light);
+
+  border-radius: 50%;
+
+  color: var(--healthcare-gold-light);
+
+  margin-top: 2px;
+}
+
+
+.healthcare-responsibility-item p {
+  margin: 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.78
+    );
+
+  font-size: 0.86rem;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   JOURNEY SECTION
+   ========================================================= */
+
+.healthcare-journey-section {
+  padding:
+    72px
+    0;
+
+  background:
+    #f7f1e6;
+
+  color:
+    #0d1b2a;
+}
+
+
+.healthcare-journey-section .healthcare-eyebrow {
+  color:
+    var(--healthcare-gold);
+}
+
+
+.healthcare-journey-section
+.healthcare-section-heading h2 {
+  color:
+    #0d1b2a;
+}
+
+
+.healthcare-journey-section
+.healthcare-section-heading p {
+  color:
+    #4a4640;
+}
+
+
+/* =========================================================
+   JOURNEY FLOW
+   ========================================================= */
+
+.healthcare-journey-flow {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+
+.healthcare-journey-item {
+  width: 220px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+
+.healthcare-journey-icon {
+  width: 92px;
+  height: 92px;
+
+  margin-bottom: 16px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(
+      201,
+      145,
+      42,
+      0.5
+    );
+
+  border-radius: 50%;
+
+  background:
+    #ffffff;
+
+  box-shadow:
+    0
+    10px
+    24px
+    rgba(
+      13,
+      27,
+      42,
+      0.1
+    );
+
+  color:
+    var(--healthcare-gold);
+}
+
+
+.healthcare-journey-item h3 {
+  margin:
+    0
+    0
+    8px;
+
+  color:
+    #0d1b2a;
+
+  font-size: 1.35rem;
+
+  font-weight: 700;
+}
+
+
+.healthcare-journey-item p {
+  margin: 0;
+
+  color:
+    #4a4640;
+
+  font-size: 0.84rem;
+
+  line-height: 1.55;
+}
+
+
+.healthcare-flow-connector {
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding-top: 46px;
+}
+
+
+.healthcare-flow-connector span {
+  width: 8px;
+  height: 8px;
+
+  border:
+    1.5px solid
+    var(--healthcare-gold);
+
+  border-radius: 50%;
+
+  background:
+    #f7f1e6;
+}
+
+
+.healthcare-flow-connector::before,
+.healthcare-flow-connector::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    rgba(
+      201,
+      145,
+      42,
+      0.4
+    );
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.healthcare-cta-section {
+  background:
+    var(--healthcare-navy);
+
+  border-top:
+    1px solid
+    rgba(
+      201,
+      145,
+      42,
+      0.45
+    );
+}
+
+
+.healthcare-cta {
+  min-height: 105px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+.healthcare-cta-icon {
+  flex-shrink: 0;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color:
+    var(--healthcare-gold-light);
+}
+
+
+.healthcare-cta-content {
+  flex: 1;
+}
+
+
+.healthcare-cta-content h2 {
+  margin:
+    0
+    0
+    5px;
+
+  color:
+    #ffffff;
+
+  font-size: 1.8rem;
+
+  font-weight: 500;
+
+  line-height: 1.1;
+}
+
+
+.healthcare-cta-content p {
+  margin: 0;
+
+  color:
+    var(--healthcare-gold-light);
+
+  font-size: 0.88rem;
+}
+
+
+.healthcare-cta-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 180px;
+
+  padding:
+    14px
+    24px;
+
+  border-radius: 7px;
+
+  background:
+    var(--healthcare-gold-light);
+
+  color:
+    #ffffff;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.healthcare-cta-button:hover {
+  background:
+    #e2b45d;
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .healthcare-hero-container {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .healthcare-hero-stats {
+    grid-column:
+      1 / -1;
+
+    flex-direction: row;
+
+    gap: 20px;
+
+    margin-top: 20px;
+  }
+
+
+  .healthcare-hero-stat {
+    flex: 1;
+
+    padding:
+      10px
+      15px;
+
+    border-bottom: none;
+
+    border-right:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.15
+      );
+  }
+
+
+  .healthcare-hero-stat:last-child {
+    border-right: none;
+  }
+
+
+  .healthcare-program-grid {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+
+  .healthcare-story-layout {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .healthcare-story-visual {
+    min-height:
+      400px;
+  }
+
+
+  .healthcare-responsibility {
+    padding:
+      50px
+      24px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .healthcare-hero {
+    padding:
+      54px
+      0
+      64px;
+  }
+
+
+  .healthcare-hero-container {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .healthcare-hero-content {
+    max-width:
+      680px;
+  }
+
+
+  .healthcare-hero-image-wrapper {
+    min-height:
+      360px;
+  }
+
+
+  .healthcare-hero-image {
+    height:
+      380px;
+  }
+
+
+  .healthcare-hero-stats {
+    grid-column:
+      auto;
+
+    flex-direction:
+      row;
+  }
+
+
+  .healthcare-responsibility-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .healthcare-journey-flow {
+    flex-wrap:
+      wrap;
+
+    justify-content:
+      center;
+
+    gap:
+      32px;
+  }
+
+
+  .healthcare-flow-connector {
+    display:
+      none;
+  }
+
+
+  .healthcare-journey-item {
+    width:
+      190px;
+  }
+
+
+  .healthcare-cta {
+    flex-wrap:
+      wrap;
+
+    padding:
+      24px
+      0;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .healthcare-container {
+    padding:
+      0
+      20px;
+  }
+
+
+  .healthcare-hero {
+    padding:
+      48px
+      0
+      50px;
+  }
+
+
+  .healthcare-hero-content h1 {
+    font-size:
+      clamp(
+        2.5rem,
+        12vw,
+        3.5rem
+      );
+  }
+
+
+  .healthcare-hero-description {
+    font-size:
+      0.94rem;
+  }
+
+
+  .healthcare-hero-image-wrapper {
+    min-height:
+      280px;
+  }
+
+
+  .healthcare-hero-image {
+    height:
+      300px;
+  }
+
+
+  .healthcare-hero-stats {
+    flex-direction:
+      column;
+
+    gap:
+      0;
+  }
+
+
+  .healthcare-hero-stat {
+    width:
+      100%;
+
+    border-right:
+      none;
+
+    border-bottom:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.15
+      );
+  }
+
+
+  .healthcare-programs-section {
+    padding:
+      50px
+      0
+      60px;
+  }
+
+
+  .healthcare-program-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .healthcare-program-card {
+    min-height:
+      210px;
+  }
+
+
+  .healthcare-story-visual {
+    min-height:
+      360px;
+  }
+
+
+  .healthcare-quote {
+    left:
+      22px;
+
+    bottom:
+      22px;
+
+    max-width:
+      270px;
+  }
+
+
+  .healthcare-quote p {
+    font-size:
+      1.25rem;
+  }
+
+
+  .healthcare-responsibility {
+    padding:
+      44px
+      20px;
+  }
+
+
+  .healthcare-responsibility h2 {
+    font-size:
+      2.4rem;
+  }
+
+
+  .healthcare-journey-section {
+    padding:
+      58px
+      0;
+  }
+
+
+  .healthcare-journey-flow {
+    flex-direction:
+      column;
+
+    align-items:
+      center;
+  }
+
+
+  .healthcare-journey-item {
+    width:
+      100%;
+
+    max-width:
+      320px;
+  }
+
+
+  .healthcare-cta {
+    display:
+      grid;
+
+    grid-template-columns:
+      auto
+      1fr;
+
+    gap:
+      10px;
+  }
+
+
+  .healthcare-cta-icon {
+    grid-row:
+      span 2;
+  }
+
+
+  .healthcare-cta-button {
+    grid-column:
+      1 / -1;
+
+    width:
+      100%;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .healthcare-hero-content h1 {
+    font-size:
+      2.35rem;
+  }
+
+
+  .healthcare-section-heading h2 {
+    font-size:
+      2.3rem;
+  }
+
+
+  .healthcare-program-card {
+    padding:
+      28px
+      22px;
+  }
+
+
+  .healthcare-responsibility h2 {
+    font-size:
+      2.15rem;
+  }
+
+}
