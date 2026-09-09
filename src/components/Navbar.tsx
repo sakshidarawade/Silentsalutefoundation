@@ -722,25 +722,14 @@ export default function Navbar() {
               href="/donate"
               className="
                 btn-gold
-                inline-flex
+                hidden
                 shrink-0
                 items-center
                 justify-center
                 whitespace-nowrap
                 rounded-md
 
-                px-1.5
-                py-1.5
-                text-[0.6rem]
-
-                min-[380px]:px-2
-                min-[380px]:py-[7px]
-                min-[380px]:text-[0.67rem]
-
-                sm:px-4
-                sm:py-2.5
-                sm:text-[0.84rem]
-
+                lg:inline-flex
                 lg:px-7
                 lg:py-3.5
                 lg:text-[0.95rem]
@@ -1261,6 +1250,22 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
             >
               Contact
+            </Link>
+
+            <Link
+              href="/donate"
+              className="
+                block
+                border-b
+                border-white/10
+                py-3
+                text-lg
+                font-medium
+                text-[#F4D08B]
+              "
+              onClick={() => setMobileOpen(false)}
+            >
+              Donate
             </Link>
           </div>
 

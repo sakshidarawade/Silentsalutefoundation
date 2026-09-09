@@ -205,14 +205,13 @@ export default function AboutSection() {
 
           <div className="relative flex w-full items-center justify-center">
             <div
-              className="relative overflow-hidden rounded-[26px] border border-[#d6a64c]/80 bg-[#0d4236] p-[2px] shadow-[0_20px_50px_rgba(0,0,0,0.25)]"
+              className="about-card-frame relative overflow-hidden rounded-[26px] border border-[#d6a64c]/80 bg-[#0d4236] p-[2px] shadow-[0_20px_50px_rgba(0,0,0,0.25)]"
               style={{
                 width: '100%',
                 maxWidth: '560px',
-                minHeight: '500px',
               }}
             >
-              <div className="relative h-full min-h-[min(500px,125vw)] overflow-hidden rounded-[24px] bg-[#0d4236] sm:min-h-[500px]">
+              <div className="about-card-image relative h-full min-h-[320px] overflow-hidden rounded-[24px] bg-[#0d4236] sm:min-h-[500px]">
                 <div className="absolute inset-0">
                   {featureSlides.map((slide, index) => (
                     <img
@@ -228,7 +227,7 @@ export default function AboutSection() {
 
                 <div className="absolute inset-x-0 bottom-0 z-10 p-2">
                   <div
-                    className="w-full rounded-[22px] border-[1.75px] border-[#d6a64c]/80 bg-[rgba(9,25,31,0.52)] px-4 pb-5 pt-4 backdrop-blur-[2px]"
+                    className="about-card-stats-panel w-full rounded-[22px] border-[1.75px] border-[#d6a64c]/80 bg-[rgba(9,25,31,0.52)] px-4 pb-5 pt-4 backdrop-blur-[2px]"
                     style={{ minHeight: '180px' }}
                   >
                     <div className="grid grid-cols-3 gap-2 text-center text-white/90 sm:gap-4">
