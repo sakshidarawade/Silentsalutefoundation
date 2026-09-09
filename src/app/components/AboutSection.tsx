@@ -147,17 +147,17 @@ export default function AboutSection() {
             </p>
 
             <h2
-            className="mb-4 text-[clamp(2.4rem,3.6vw,4rem)] leading-[0.9] text-white"
-            style={{
-              fontFamily: 'Cormorant Garamond, Georgia, serif',
-              fontWeight: 700,
-              letterSpacing: '-0.04em',
+              className="mb-4 text-[clamp(2.4rem,3.6vw,4rem)] leading-[0.9] text-white"
+              style={{
+                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontWeight: 700,
+                letterSpacing: '-0.04em',
               }}
-              >
-                Supporting Families of
-                <br />
-                Indian Heroes
-              </h2>
+            >
+              Supporting Families of
+              <br />
+              <span className="text-[#d6a64c]">Indian Heroes</span>
+            </h2>
             
 
             <p className="mb-6 text-[1.05rem] italic text-white/70">

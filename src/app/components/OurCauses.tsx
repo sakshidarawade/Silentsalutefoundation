@@ -133,6 +133,7 @@ export default function OurCauses() {
                 src="/assets/images/causeEdu.png" 
                 alt="Education support" 
                 className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] group-active:scale-[1.03]"
+                style={{ objectPosition: '50% 50%' }}
               /> 
  
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,20,29,0.1)_0%,rgba(4,20,29,0.28)_35%,rgba(4,20,29,0.82)_100%)]" /> 
@@ -205,6 +206,7 @@ export default function OurCauses() {
                 src="/assets/images/causeHealth.png" 
                 alt="Healthcare support" 
                 className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] group-active:scale-[1.03]"
+                style={{ objectPosition: '70% 50%' }}
               /> 
  
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,20,29,0.1)_0%,rgba(4,20,29,0.28)_35%,rgba(4,20,29,0.82)_100%)]" /> 
