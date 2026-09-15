@@ -35,17 +35,17 @@ const impactStats = [
   {
     icon: "AcademicCapIcon",
     value: "750+",
-    label: "Children Supported",
+    label: "Children We Aim to Support.",
   },
   {
     icon: "BookOpenIcon",
     value: "35+",
-    label: "Schools & Programs",
+    label: "Schools & Programs We Aim to Support.",
   },
   {
     icon: "UserGroupIcon",
     value: "100%",
-    label: "Commitment to Their Future",
+    label: "Commitment to Their Future.",
   },
 ];
 
@@ -103,9 +103,9 @@ export default function Education() {
             </p>
 
             <p className="education-hero-description secondary">
-              We provide quality education, learning resources, and
-              opportunities to the children of our brave soldiers —
-              both serving and retired.
+               We provide quality education, learning resources, and
+               opportunities to children of retired and former defence
+               personnel.
             </p>
 
             <Link

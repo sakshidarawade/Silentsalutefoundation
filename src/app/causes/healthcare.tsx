@@ -34,22 +34,22 @@ const impactStats = [
   {
     icon: "HeartIcon",
     value: "10K+",
-    label: "Lives Impacted",
+    label: "Lives We Aim to Impact",
   },
   {
     icon: "BuildingOfficeIcon",
     value: "25+",
-    label: "Medical Camps Conducted",
+    label: "Medical Camps Planned",
   },
   {
     icon: "UserGroupIcon",
     value: "500+",
-    label: "Soldiers & Families Supported",
+    label: "Soldiers & Families We Aim to Support",
   },
   {
     icon: "ShieldCheckIcon",
     value: "100%",
-    label: "Care & Compassion",
+    label: "Commitment to Care",
   },
 ];
 
