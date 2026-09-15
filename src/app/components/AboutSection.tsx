@@ -6,7 +6,7 @@ const stats = [
   { value: '500+', label: 'Families We Aspire to Support' },
   { value: '1,200+', label: 'Children We Aspire to Support' },
   { value: '15+', label: 'States We Aspire to Reach' },
-  { value: '8+', label: 'Years of Service Ahead' },
+  { value: '2026', label: 'Year Established' },
 ];
 
 const featureSlides = [
@@ -14,115 +14,203 @@ const featureSlides = [
     image: '/assets/images/about1.png',
     quote: 'Their sacrifice protects our today, let’s secure their tomorrow.',
     stats: [
-      { label: 'EDUCATION', value: 'Brighter Futures', icon: 'AcademicCapIcon' },
-      { label: 'HEALTHCARE', value: 'Health & Healing', icon: 'PlusIcon' },
-      { label: 'HOPE', value: 'Stronger Together', icon: 'HeartIcon' },
+      {
+        label: 'EDUCATION',
+        value: 'Brighter Futures',
+        icon: 'AcademicCapIcon',
+      },
+      {
+        label: 'HEALTHCARE',
+        value: 'Health & Healing',
+        icon: 'PlusIcon',
+      },
+      {
+        label: 'HOPE',
+        value: 'Stronger Together',
+        icon: 'HeartIcon',
+      },
     ],
   },
   {
     image: '/assets/images/about2.png',
     quote: 'Their sacrifice protects our today, let’s secure their tomorrow.',
     stats: [
-      { label: 'EDUCATION', value: 'Brighter Futures', icon: 'AcademicCapIcon' },
-      { label: 'HEALTHCARE', value: 'Health & Healing', icon: 'PlusIcon' },
-      { label: 'HOPE', value: 'Stronger Together', icon: 'HeartIcon' },
+      {
+        label: 'EDUCATION',
+        value: 'Brighter Futures',
+        icon: 'AcademicCapIcon',
+      },
+      {
+        label: 'HEALTHCARE',
+        value: 'Health & Healing',
+        icon: 'PlusIcon',
+      },
+      {
+        label: 'HOPE',
+        value: 'Stronger Together',
+        icon: 'HeartIcon',
+      },
     ],
   },
   {
     image: '/assets/images/about3.png',
     quote: 'Their sacrifice protects our today, let’s secure their tomorrow.',
     stats: [
-      { label: 'EDUCATION', value: 'Brighter Futures', icon: 'AcademicCapIcon' },
-      { label: 'HEALTHCARE', value: 'Health & Healing', icon: 'PlusIcon' },
-      { label: 'HOPE', value: 'Stronger Together', icon: 'HeartIcon' },
+      {
+        label: 'EDUCATION',
+        value: 'Brighter Futures',
+        icon: 'AcademicCapIcon',
+      },
+      {
+        label: 'HEALTHCARE',
+        value: 'Health & Healing',
+        icon: 'PlusIcon',
+      },
+      {
+        label: 'HOPE',
+        value: 'Stronger Together',
+        icon: 'HeartIcon',
+      },
     ],
   },
   {
     image: '/assets/images/about4.png',
     quote: 'Their sacrifice protects our today, let’s secure their tomorrow.',
     stats: [
-      { label: 'EDUCATION', value: 'Brighter Futures', icon: 'AcademicCapIcon' },
-      { label: 'HEALTHCARE', value: 'Health & Healing', icon: 'PlusIcon' },
-      { label: 'HOPE', value: 'Stronger Together', icon: 'HeartIcon' },
+      {
+        label: 'EDUCATION',
+        value: 'Brighter Futures',
+        icon: 'AcademicCapIcon',
+      },
+      {
+        label: 'HEALTHCARE',
+        value: 'Health & Healing',
+        icon: 'PlusIcon',
+      },
+      {
+        label: 'HOPE',
+        value: 'Stronger Together',
+        icon: 'HeartIcon',
+      },
     ],
   },
 ];
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [animatedValues, setAnimatedValues] = useState<number[]>(stats.map(() => 0));
-  const [currentSlide, setCurrentSlide] = useState(0);
 
+  const [animatedValues, setAnimatedValues] = useState<number[]>(
+    stats.map(() => 0)
+  );
+
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+
+  /* ---------------------------------------
+     IMAGE SLIDER
+  --------------------------------------- */
   useEffect(() => {
     const sliderInterval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % featureSlides.length);
+      setCurrentSlide(
+        (prev: number) => (prev + 1) % featureSlides.length
+      );
     }, 3500);
 
     return () => clearInterval(sliderInterval);
   }, []);
 
+  /* ---------------------------------------
+     ANIMATED COUNTERS
+  --------------------------------------- */
   useEffect(() => {
     const section = sectionRef.current;
+
     if (!section) return;
 
     let frameIds: number[] = [];
 
-    const animateCounters = () => {
+    const animateCounters = (): void => {
       setAnimatedValues(stats.map(() => 0));
 
-      const startTime = performance.now();
-      const duration = 1500;
+      const startTime: number = performance.now();
+      const duration: number = 1500;
 
       stats.forEach((stat, index) => {
-        const target = Number(String(stat.value).replace(/[^0-9]/g, ''));
+        const target: number = Number(
+          String(stat.value).replace(/[^0-9]/g, '')
+        );
 
-        const tick = (now: number) => {
-          const progress = Math.min((now - startTime) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const currentValue = Math.round(target * eased);
+        const tick = (now: number): void => {
+          const progress: number = Math.min(
+            (now - startTime) / duration,
+            1
+          );
 
-          setAnimatedValues((prev) => {
-            const next = [...prev];
+          const eased: number =
+            1 - Math.pow(1 - progress, 3);
+
+          const currentValue: number = Math.round(
+            target * eased
+          );
+
+          setAnimatedValues((prev: number[]) => {
+            const next: number[] = [...prev];
             next[index] = currentValue;
             return next;
           });
 
           if (progress < 1) {
-            const id = requestAnimationFrame(tick);
+            const id: number = requestAnimationFrame(tick);
             frameIds.push(id);
           }
         };
 
-        const id = requestAnimationFrame(tick);
+        const id: number = requestAnimationFrame(tick);
         frameIds.push(id);
       });
     };
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCounters();
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach(
+          (entry: IntersectionObserverEntry) => {
+            if (entry.isIntersecting) {
+              animateCounters();
+            }
           }
-        });
+        );
       },
-      { threshold: 0.35 }
+      {
+        threshold: 0.35,
+      }
     );
 
     observer.observe(section);
 
-    if (section.getBoundingClientRect().top < window.innerHeight && section.getBoundingClientRect().bottom > 0) {
+    const rect: DOMRect =
+      section.getBoundingClientRect();
+
+    if (
+      rect.top < window.innerHeight &&
+      rect.bottom > 0
+    ) {
       animateCounters();
     }
 
     return () => {
       observer.disconnect();
-      frameIds.forEach((id) => cancelAnimationFrame(id));
+
+      frameIds.forEach((id: number) => {
+        cancelAnimationFrame(id);
+      });
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#041e2e] py-20 text-white">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-[#041e2e] py-20 text-white"
+    >
+      {/* LEFT WATERMARK */}
       <div className="pointer-events-none absolute bottom-[-30px] left-[-10px] hidden h-[420px] w-[420px] opacity-30 lg:block">
         <img
           src="/assets/images/watermark3.png"
@@ -131,6 +219,7 @@ export default function AboutSection() {
         />
       </div>
 
+      {/* RIGHT WATERMARK */}
       <div className="pointer-events-none absolute right-[-20px] top-[-10px] hidden h-[420px] w-[420px] opacity-25 lg:block">
         <img
           src="/assets/images/watermark4.png"
@@ -141,7 +230,10 @@ export default function AboutSection() {
 
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-[1.35fr_1.05fr]">
+
+          {/* LEFT CONTENT */}
           <div className="max-w-[860px] justify-self-start text-left lg:ml-[70px]">
+
             <p className="mb-4 text-[0.8rem] font-semibold uppercase tracking-[0.28em] text-[#d6a64c] sm:text-[0.9rem]">
               ABOUT US
             </p>
@@ -149,16 +241,18 @@ export default function AboutSection() {
             <h2
               className="mb-4 text-[clamp(2.4rem,3.6vw,4rem)] leading-[0.9] text-white"
               style={{
-                fontFamily: 'Cormorant Garamond, Georgia, serif',
+                fontFamily:
+                  'Cormorant Garamond, Georgia, serif',
                 fontWeight: 700,
                 letterSpacing: '-0.04em',
               }}
             >
               Supporting Families of
               <br />
-              <span className="text-[#d6a64c]">Indian Heroes</span>
+              <span className="text-[#d6a64c]">
+                Indian Heroes
+              </span>
             </h2>
-            
 
             <p className="mb-6 text-[1.05rem] italic text-white/70">
               वीर परिवारों का संबल
@@ -174,35 +268,64 @@ export default function AboutSection() {
               We work across India to provide scholarships, medical assistance, financial aid, and emotional support — because the families behind the uniform deserve as much honour as those who wear it.
             </p>
 
+            {/* STATS */}
             <div className="mb-10 grid max-w-[520px] grid-cols-2 gap-x-5 gap-y-6">
               {stats.map((stat, index) => {
-                const suffix = stat.value.replace(/[0-9,]/g, '');
-                const value = animatedValues[index]?.toLocaleString() ?? '0';
+                const suffix: string = stat.value.replace(
+                  /[0-9,]/g,
+                  ''
+                );
+
+                /*
+                 * 2026 should animate but NEVER display
+                 * as 2,026.
+                 *
+                 * Other numbers keep comma formatting.
+                 */
+                const value: string =
+                  stat.value === '2026'
+                    ? animatedValues[index]?.toString() ?? '0'
+                    : animatedValues[index]?.toLocaleString() ?? '0';
 
                 return (
-                  <div key={stat.label} className="border-l border-[#d6a64c]/70 pl-4">
+                  <div
+                    key={stat.label}
+                    className="border-l border-[#d6a64c]/70 pl-4"
+                  >
                     <div
                       className="text-[3rem] leading-none text-[#d6a64c]"
                       style={{
-                        fontFamily: 'Cormorant Garamond, Georgia, serif',
+                        fontFamily:
+                          'Cormorant Garamond, Georgia, serif',
                         fontWeight: 700,
                       }}
                     >
                       {value}
                       {suffix}
                     </div>
-                    <div className="mt-2 text-sm text-white/70">{stat.label}</div>
+
+                    <div className="mt-2 text-sm text-white/70">
+                      {stat.label}
+                    </div>
                   </div>
                 );
               })}
             </div>
 
-            <Link href="/about/who-we-are" className="btn-gold inline-flex items-center gap-2">
+            {/* BUTTON */}
+            <Link
+              href="/about/who-we-are"
+              className="btn-gold inline-flex items-center gap-2"
+            >
               Discover Our Mission
-              <Icon name="ArrowRightIcon" size={16} />
+              <Icon
+                name="ArrowRightIcon"
+                size={16}
+              />
             </Link>
           </div>
 
+          {/* RIGHT IMAGE */}
           <div className="relative flex w-full items-center justify-center">
             <div
               className="about-card-frame relative overflow-hidden rounded-[26px] border border-[#d6a64c]/80 bg-[#0d4236] p-[2px] shadow-[0_20px_50px_rgba(0,0,0,0.25)]"
@@ -212,35 +335,58 @@ export default function AboutSection() {
               }}
             >
               <div className="about-card-image relative h-full min-h-[320px] overflow-hidden rounded-[24px] bg-[#0d4236] sm:min-h-[500px]">
+
+                {/* SLIDES */}
                 <div className="absolute inset-0">
-                  {featureSlides.map((slide, index) => (
-                    <img
-                      key={slide.image}
-                      src={slide.image}
-                      alt=""
-                      className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700 ease-in-out"
-                      style={{ opacity: index === currentSlide ? 1 : 0 }}
-                    />
-                  ))}
+                  {featureSlides.map(
+                    (slide, index) => (
+                      <img
+                        key={slide.image}
+                        src={slide.image}
+                        alt=""
+                        className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700 ease-in-out"
+                        style={{
+                          opacity:
+                            index === currentSlide
+                              ? 1
+                              : 0,
+                        }}
+                      />
+                    )
+                  )}
+
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,20,27,0.18)_0%,rgba(7,20,27,0.10)_35%,rgba(7,20,27,0.48)_100%)]" />
                 </div>
 
+                {/* BOTTOM PANEL */}
                 <div className="absolute inset-x-0 bottom-0 z-10 p-2">
                   <div
                     className="about-card-stats-panel w-full rounded-[22px] border-[1.75px] border-[#d6a64c]/80 bg-[rgba(9,25,31,0.52)] px-4 pb-5 pt-4 backdrop-blur-[2px]"
-                    style={{ minHeight: '180px' }}
+                    style={{
+                      minHeight: '180px',
+                    }}
                   >
                     <div className="grid grid-cols-3 gap-2 text-center text-white/90 sm:gap-4">
-                      {featureSlides[currentSlide].stats.map((item) => (
-                        <div key={item.label} className="flex flex-col items-center justify-start">
+                      {featureSlides[
+                        currentSlide
+                      ].stats.map((item) => (
+                        <div
+                          key={item.label}
+                          className="flex flex-col items-center justify-start"
+                        >
                           <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full border-[2px] border-[#d6a64c]/80 bg-[rgba(214,166,76,0.08)] shadow-[0_0_18px_rgba(214,166,76,0.12)] sm:mb-3 sm:h-16 sm:w-16">
-                            <Icon name={item.icon} size={30} className="text-[#d6a64c]" />
+                            <Icon
+                              name={item.icon}
+                              size={30}
+                              className="text-[#d6a64c]"
+                            />
                           </div>
 
                           <div
                             className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#d6a64c]"
                             style={{
-                              fontFamily: 'Cormorant Garamond, Georgia, serif',
+                              fontFamily:
+                                'Cormorant Garamond, Georgia, serif',
                               fontWeight: 700,
                             }}
                           >
@@ -255,9 +401,11 @@ export default function AboutSection() {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
