@@ -3,10 +3,10 @@ import Link from '@/components/ui/Link';
 import Icon from '@/components/ui/AppIcon';
 
 const stats = [
-  { value: '500+', label: 'Families Supported' },
-  { value: '1,200+', label: 'Children Educated' },
-  { value: '15+', label: 'States Reached' },
-  { value: '8+', label: 'Years of Service' },
+  { value: '500+', label: 'Families We Aspire to Support' },
+  { value: '1,200+', label: 'Children We Aspire to Support' },
+  { value: '15+', label: 'States We Aspire to Reach' },
+  { value: '8+', label: 'Years of Service Ahead' },
 ];
 
 const featureSlides = [
