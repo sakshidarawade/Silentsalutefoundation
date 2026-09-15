@@ -428,55 +428,60 @@
 //     </section>
 //   );
 // }
-
-import React from 'react';
+import React from "react";
 
 const team = [
   {
-    name: 'Ketan Patwardhan',
-    role: 'Governing Council',
-    bio: '30+ years experience in Talent Acquisition across Industries.',
-    linkedin: 'your-linkedin-id',
-    bg: 'linear-gradient(135deg, #0d4236 0%, #123f50 100%)',
+    name: "Ketan Patwardhan",
+    role: "Governing Council",
+    bio: "30+ years experience in Talent Acquisition across Industries.",
+    linkedin: "https://www.linkedin.com/in/ketan-patwardhan-791887/",
+    bg: "linear-gradient(135deg, #0d4236 0%, #123f50 100%)",
   },
   {
-    name: 'Ashish Ganju',
-    role: 'Governing Council',
-    bio: 'Former IAS officer with 20 years in social welfare policy. Drives program strategy and government partnerships.',
-    linkedin: 'your-linkedin-id',
-    bg: 'linear-gradient(135deg, #123f50 0%, #0d4236 100%)',
+    name: "Ashish Ganju",
+    role: "Governing Council",
+    bio: "Former IAS officer with 20 years in social welfare policy. Drives program strategy and government partnerships.",
+    linkedin: "https://www.linkedin.com/in/ashishganju/",
+    bg: "linear-gradient(135deg, #123f50 0%, #0d4236 100%)",
   },
   {
-    name: 'Hemant Kumar',
-    role: 'Governing Council',
-    bio: 'Ex-Army Colonel overseeing ground-level family assessments and outreach across 15 states.',
-    linkedin: 'your-linkedin-id',
-    bg: 'linear-gradient(135deg, #0d4236 0%, #102d3d 100%)',
+    name: "Hemant Kumar",
+    role: "Governing Council",
+    bio: "Ex-Army Colonel overseeing ground-level family assessments and outreach across 15 states.",
+    linkedin: "https://www.linkedin.com/in/syngolhemant/",
+    bg: "linear-gradient(135deg, #0d4236 0%, #102d3d 100%)",
   },
   {
-    name: 'Navneet',
-    role: 'Governing Council',
-    bio: 'Education specialist with 12 years experience running scholarship programs for underprivileged youth.',
-    linkedin: 'your-linkedin-id',
-    bg: 'linear-gradient(135deg, #102d3d 0%, #0d4236 100%)',
+    name: "Navneet Arora",
+    role: "Governing Council",
+    bio: "Education specialist with 12 years experience running scholarship programs for underprivileged youth.",
+    linkedin: "https://www.linkedin.com/in/navneetarora/",
+    bg: "linear-gradient(135deg, #102d3d 0%, #0d4236 100%)",
   },
   {
-    name: 'Shiva',
-    role: 'Governing Council',
-    bio: 'MBBS, MD. Organizes medical camps and manages emergency healthcare fund disbursements.',
-    linkedin: 'your-linkedin-id',
-    bg: 'linear-gradient(135deg, #0f3548 0%, #123f50 100%)',
+    name: "Shiva Mathur",
+    role: "Governing Council",
+    bio: "MBBS, MD. Organizes medical camps and manages emergency healthcare fund disbursements.",
+    linkedin: "https://www.linkedin.com/in/mathurshiva07/",
+    bg: "linear-gradient(135deg, #0f3548 0%, #123f50 100%)",
   },
   {
-    name: 'Meena Tiwari',
-    role: 'Governing Council',
-    bio: 'Social worker with deep expertise in trauma counseling and family rehabilitation support.',
-    linkedin: 'your-linkedin-id',
-    bg: 'linear-gradient(135deg, #0d4236 0%, #102f35 100%)',
+    name: "Khushboo Mathur",
+    role: "Governing Council",
+    bio: "Social worker with deep expertise in trauma counseling and family rehabilitation support.",
+    linkedin:
+      "https://www.linkedin.com/in/khushboo-mathur-shrm-cp-506771118/",
+    bg: "linear-gradient(135deg, #0d4236 0%, #102f35 100%)",
   },
 ];
 
 export default function TeamSection() {
+  // Opens LinkedIn profile in a new browser tab
+  const openLinkedIn = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section
       id="team"
@@ -615,10 +620,10 @@ export default function TeamSection() {
           {team.map((member) => {
             const initial =
               member.name
-                .split(' ')
+                .split(" ")
                 .filter(Boolean)[0]
                 ?.charAt(0)
-                .toUpperCase() || '';
+                .toUpperCase() || "";
 
             return (
               <article
@@ -690,7 +695,7 @@ export default function TeamSection() {
                     "
                     style={{
                       background:
-                        'linear-gradient(to top, rgba(13,66,54,0.92), transparent)',
+                        "linear-gradient(to top, rgba(13,66,54,0.92), transparent)",
                     }}
                   />
 
@@ -781,7 +786,7 @@ export default function TeamSection() {
                   />
 
                   <div className="relative z-10 flex h-full flex-col">
-                    {/* Member Name */}
+                    {/* ================= MEMBER NAME ================= */}
 
                     <h3
                       className="
@@ -801,7 +806,7 @@ export default function TeamSection() {
                       {member.name}
                     </h3>
 
-                    {/* Role */}
+                    {/* ================= ROLE ================= */}
 
                     <p
                       className="
@@ -822,7 +827,7 @@ export default function TeamSection() {
                       {member.role}
                     </p>
 
-                    {/* Divider */}
+                    {/* ================= DIVIDER ================= */}
 
                     <div
                       className="
@@ -836,7 +841,7 @@ export default function TeamSection() {
                       "
                     />
 
-                    {/* Bio */}
+                    {/* ================= BIO ================= */}
 
                     <p
                       className="
@@ -858,115 +863,82 @@ export default function TeamSection() {
                     <div className="mt-auto pt-6">
                       <div
                         className="
-                          flex
-                          items-center
-                          gap-2
                           border-t
                           border-white/10
                           pt-4
                         "
                       >
-                        {/* LinkedIn Icon */}
-
-                        <a
-                          href={
-                            member.linkedin === 'your-linkedin-id'
-                              ? '#'
-                              : `https://www.linkedin.com/in/${member.linkedin}`
-                          }
-                          target={
-                            member.linkedin === 'your-linkedin-id'
-                              ? undefined
-                              : '_blank'
-                          }
-                          rel={
-                            member.linkedin === 'your-linkedin-id'
-                              ? undefined
-                              : 'noopener noreferrer'
-                          }
-                          onClick={(e) => {
-                            if (
-                              member.linkedin === 'your-linkedin-id'
-                            ) {
-                              e.preventDefault();
-                            }
-                          }}
-                          aria-label={`${member.name} LinkedIn`}
+                        <button
+                          type="button"
+                          onClick={() => openLinkedIn(member.linkedin)}
+                          aria-label={`${member.name} LinkedIn profile`}
                           className="
-                            flex
-                            h-[30px]
-                            w-[30px]
-                            shrink-0
+                            inline-flex
                             items-center
-                            justify-center
-                            rounded-full
-                            border
-                            border-[#d6a64c]/50
-                            bg-[#d6a64c]/[0.08]
+                            gap-2
+                            border-0
+                            bg-transparent
+                            p-0
                             text-[#d6a64c]
+                            cursor-pointer
                             transition-all
                             duration-300
-                            hover:border-[#d6a64c]
-                            hover:bg-[#d6a64c]/[0.16]
                             hover:text-white
+                            focus:outline-none
                           "
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="h-[15px] w-[15px]"
-                            aria-hidden="true"
-                          >
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.605 0 4.27 2.372 4.27 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM3.56 9h3.558v11.452H3.56V9z" />
-                          </svg>
-                        </a>
+                          {/* ================= CIRCULAR LINKEDIN ICON ================= */}
 
-                        {/* LinkedIn Placeholder */}
-
-                        <div
-                          className="
-                            flex
-                            min-w-0
-                            flex-col
-                          "
-                        >
                           <span
                             className="
-                              text-[9px]
+                              flex
+                              h-[30px]
+                              w-[30px]
+                              items-center
+                              justify-center
+                              rounded-full
+                              border
+                              border-[#d6a64c]/50
+                              bg-[#d6a64c]/[0.08]
+                              transition-all
+                              duration-300
+                              group-hover:border-[#d6a64c]
+                              group-hover:bg-[#d6a64c]/[0.16]
+                            "
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              className="h-[15px] w-[15px] fill-current"
+                              aria-hidden="true"
+                            >
+                              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.605 0 4.27 2.372 4.27 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM3.56 9h3.558v11.452H3.56V9z" />
+                            </svg>
+                          </span>
+
+                          {/* ================= LINKEDIN TEXT ================= */}
+
+                          <span
+                            className="
+                              text-[12px]
                               font-semibold
                               uppercase
-                              tracking-[0.12em]
-                              text-[#d6a64c]
+                              tracking-[0.08em]
                             "
                             style={{
                               fontFamily:
                                 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                             }}
                           >
-                            LinkedIn
+                            LINKEDIN
                           </span>
-
-                          <span
-                            className="
-                              truncate
-                              text-[11px]
-                              text-white/50
-                            "
-                            style={{
-                              fontFamily:
-                                'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-                            }}
-                          >
-                            /in/{member.linkedin}
-                          </span>
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Bottom Hover Line */}
+                {/* ================= BOTTOM HOVER LINE ================= */}
 
                 <div
                   className="
